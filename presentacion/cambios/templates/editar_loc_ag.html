@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar JSON - Grupo Fersan</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/FERSAN_LOGO_PAGINA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles_editar.css' %}">
+</head>
+<body id="editar">
+
+  {% include 'components/encabezado_editar.html' %}
+
+  <main class="ml-64 p-8">
+
+    <div class="navigation">
+        <a href="{% url 'inicio_usuario' %}" class="back-button">Regresar</a>
+    </div>
+
+    <!-- Formulario general para editar, eliminar y agregar tarjetas -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h2>Editar Agencias</h2>
+
+        {% for categoria, agencias in agencias.items %}
+        <section class="category-section">
+            <h3 class="category-title">{{ categoria|title }}</h3>
+
+            {% for agencia in agencias %}
+            <div class="card-section">
+                <h4 class="card-title">{{ agencia.nombre }}</h4>
+
+                <label for="nombre_{{ categoria }}_{{ forloop.counter0 }}" class="form-label">Agencia:</label>
+                <input type="text" id="nombre_{{ categoria }}_{{ forloop.counter0 }}" name="nombre_{{ categoria }}_{{ forloop.counter0 }}" value="{{ agencia.nombre }}" class="form-input">
+
+                <label for="imagen_{{ categoria }}_{{ forloop.counter0 }}" class="form-label">Imagen:</label>
+                <input type="file" id="imagen_{{ categoria }}_{{ forloop.counter0 }}" name="imagen_{{ categoria }}_{{ forloop.counter0 }}" accept="image/*" class="form-input">
+
+                <label for="contacto_{{ categoria }}_{{ forloop.counter0 }}" class="form-label">Contacto:</label>
+                <textarea id="contacto_{{ categoria }}_{{ forloop.counter0 }}" name="contacto_{{ categoria }}_{{ forloop.counter0 }}" class="form-textarea">{{ agencia.contacto }}</textarea>
+
+                <label for="enlace_{{ categoria }}_{{ forloop.counter0 }}" class="form-label">Enlace:</label>
+                <input type="url" id="enlace_{{ categoria }}_{{ forloop.counter0 }}" name="enlace_{{ categoria }}_{{ forloop.counter0 }}" value="{{ agencia.enlace }}" class="form-input">
+
+                <!-- Botón para eliminar agencia -->
+                <button type="submit" class="form-button delete-button" name="action" value="delete_{{ categoria }}_{{ forloop.counter0 }}">
+                    Eliminar Agencia
+                </button>
+            </div>
+            {% endfor %}
+        </section>
+        {% endfor %}
+
+        <!-- Botón para guardar cambios -->
+        <button type="submit" class="form-button save-button" name="action" value="edit">Guardar Cambios</button>
+    </form>
+
+    <!-- Formulario para agregar una nueva agencia -->
+    <h2 class="categoria-titulo">Agregar Nueva Agencia</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="add">
+
+        <label for="nueva_categoria" class="form-label">Categoría:</label>
+        <select id="nueva_categoria" name="nueva_categoria" class="form-input">
+            {% for categoria in agencias.keys %}
+                <option value="{{ categoria }}">{{ categoria|title }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="nueva_agencia" class="form-label">Nombre de la Agencia:</label>
+        <input type="text" id="nueva_agencia" name="nueva_agencia" class="form-input">
+
+        <label for="nueva_imagen" class="form-label">Imagen:</label>
+        <input type="file" id="nueva_imagen" name="nueva_imagen" accept="image/*" class="form-input">
+
+        <label for="nuevo_contacto" class="form-label">Contacto:</label>
+        <textarea id="nuevo_contacto" name="nuevo_contacto" class="form-textarea"></textarea>
+
+        <label for="nuevo_enlace" class="form-label">Enlace:</label>
+        <input type="url" id="nuevo_enlace" name="nuevo_enlace" class="form-input">
+
+        <button type="submit" class="form-button add-button">Agregar Agencia</button>
+    </form>
+
+    <!-- Mensajes -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</main>
+
+
+
+
+</body>
+</html>

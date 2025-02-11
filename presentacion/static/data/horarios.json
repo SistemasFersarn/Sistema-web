@@ -1,0 +1,20 @@
+{
+    "pie_horarios": [
+        {
+            "departamento": "Horario de Ventasss",
+            "horarios": "Lunes a Viernes : 09:00 AM - 07:00 PM\r\nffgffggfgfgf\r\nSábado : 09:00 AM - 05:00 PM\r\nDomingo : 11:00 AM - 05:00 PM\r\nPrueba"
+        },
+        {
+            "departamento": "Horario de Servicio",
+            "horarios": "Lunes a Viernes : 09:00 AM - 07:00 PM\r\nSábado : 09:00 AM - 05:00 PM"
+        },
+        {
+            "departamento": "Horario de Refacciones",
+            "horarios": "Lunes a Viernes : 09:00 AM - 07:00 PM\r\nSábado : 09:00 AM - 05:00 PM"
+        },
+        {
+            "departamento": "Horario de Semidsadas",
+            "horarios": "Lunes a Viernes : 09:00 AM - 07:00 PM\r\nSábado : 09:00 AM - 05:00 PM\r\nDomingo : 11:00 AM - 05:00 PM"
+        }
+    ]
+}

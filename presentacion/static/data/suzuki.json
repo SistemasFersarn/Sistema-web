@@ -1,0 +1,22 @@
+{
+    "suzuki_info": [
+        {
+            "lugar": "Ixtapaluca",
+            "logo": "images/LOGO_SUCURSAL/logo_suzuki_1.png",
+            "imagen": "images/suzuki_1.png",
+            "concecionario": "Concesionario autorizado Suzuki",
+            "direccion": "Av. Cuauhtémoc 708, Santa Barbara, 56538 Ixtapaluca, Méx.",
+            "enlace": "https://www.suzuki-ixtapaluca.com.mx/",
+            "telefono": "55-15-61-23-00"
+        },
+        {
+            "lugar": "Iztacalco",
+            "logo": "images/LOGO_SUCURSAL/logo_suzuki_2.png",
+            "imagen": "images/suzuki_2.png",
+            "concecionario": "Concesionario autorizado Suzuki",
+            "direccion": "Av. Cuauhtémoc Ote. 1012, Colonía Cipreses, 56600 Chalco de Díaz Covarrubias, Méx.",
+            "enlace": "https://www.suzuki-chalco.com.mx/",
+            "telefono": "55-59-82-72-13"
+        }
+    ]
+}

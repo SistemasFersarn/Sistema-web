@@ -1,0 +1,100 @@
+{
+    "agencias": {
+        "volkswagen": [
+            {
+                "nombre": "Volkswagen Fersan Ixtapaluca",
+                "imagen": "images/localizador_agencias/volkswagen_loc_agen_1.png",
+                "contacto": "Conmutador: 55-15-61-20-70\r\n\r\nAutos Nuevos\r\n\r\nWhatsapp: 55-14-42-77-07\r\n\r\nServicio\r\n\r\nWhatsapp: 55-79-43-71-34\r\n\r\nRefacciones\r\n\r\nWhatsapp: 55-12-93-28-42\r\n\r\nSeminuevos\r\n\r\nWhatsapp: 55-73-98-98-90",
+                "enlace": "https://maps.app.goo.gl/Gyz6p8wUseHuoXhK7"
+            },
+            {
+                "nombre": "Volkswagen Fersan Iztacalco",
+                "imagen": "images/localizador_agencias/volkswagen_loc_agen_2.png",
+                "contacto": "Conmutador: 55-93-87-40-00\r\n\r\nAutos Nuevos\r\n\r\nExtension: 5000\r\n\r\nWhatsapp: 55-68-66-93-99\r\n\r\nServicio\r\n\r\nExtension: 5016\r\n\r\nWhatsapp: 55-74-32-89-09\r\n\r\nRefacciones\r\n\r\nExtension: 5019\r\n\r\nSeminuevos\r\n\r\nWhatsapp: 55-19-21-40-22",
+                "enlace": "https://maps.app.goo.gl/CCGY1waLeDsFsL2k7"
+            },
+            {
+                "nombre": "Volkswagen Fersan Chalco",
+                "imagen": "images/localizador_agencias/volkswagen_loc_agen_3.png",
+                "contacto": "Conmutador: 55-92-66-72-50\r\n\r\nAutos Nuevos\r\n\r\nWhatsapp: 55-67-87-50-45\r\n\r\nServicio\r\n\r\nWhatsapp: 55-62-31-46-09\r\n\r\nSeminuevos\r\n\r\nWhatsapp: 55-22-95-19-26",
+                "enlace": "https://maps.app.goo.gl/Jx97GWhmB8A6UhvJ8"
+            }
+        ],
+        "suzuki": [
+            {
+                "nombre": "Suzuki Chalco",
+                "imagen": "images/localizador_agencias/suzuki_loc_agen_1.png",
+                "contacto": "Conmutador: 55-15-61-23-00\r\n\r\nVentas\r\n\r\nWhatsapp: Tel:55-76-12-33-54\r\n\r\nServicio\r\n\r\nWhatsapp: 56-38-39-58-46\r\n\r\nSeminuevos\r\n\r\nWhatsapp: 56-38-39-53-97",
+                "enlace": "https://maps.app.goo.gl/pU4rJRz4fDMKUZpm7"
+            },
+            {
+                "nombre": "Suzuki Ixtapaluca",
+                "imagen": "images/localizador_agencias/suzuki_loc_agen_2.png",
+                "contacto": "Conmutador: 55-27-34-23-86\r\n\r\nWhatsapp: 55-64-71-04-63\r\n\r\nVentas\r\n\r\nExtensión: 1110\r\n\r\nServicio\r\n\r\nExtensión: 1112\r\n\r\nRefacciones\r\n\r\nExtensión: 1116\r\n\r\nSeminuevos\r\n\r\nExtensión: 1117",
+                "enlace": "https://maps.app.goo.gl/Wo6MGYe9GRCNCFqk6"
+            }
+        ],
+        "seat": [
+            {
+                "nombre": "SEAT Ixtapaluca",
+                "imagen": "images/localizador_agencias/seat_loc_agen_1.png",
+                "contacto": "Faltan datos de contacto\r\n\r\nTel: 55-63-50-35-11",
+                "enlace": "https://maps.app.goo.gl/iwv1fxdRxtRAAwpJ6"
+            },
+            {
+                "nombre": "SEAT Chalco",
+                "imagen": "images/localizador_agencias/seat_loc_agen_2.png",
+                "contacto": "Conmutador: 22-29-82-48-50",
+                "enlace": "https://maps.app.goo.gl/h4MTYq5BGXnveZfr9"
+            }
+        ],
+        "harley": [
+            {
+                "nombre": "Harley Davidson Puebla",
+                "imagen": "images/localizador_agencias/harley_loc_agen_1.png",
+                "contacto": "Tel: 55-60-90-99-64",
+                "enlace": "https://maps.app.goo.gl/avMraDNGQAG4Z6Jb7"
+            }
+        ],
+        "omoda": [
+            {
+                "nombre": "OMODA | JAECOO Ixtapaluca",
+                "imagen": "images/localizador_agencias/omoda_loc_agen_1.png",
+                "contacto": "Tel: 22-22-82-70-86",
+                "enlace": "https://maps.app.goo.gl/VtbZLiMuwTs5aLjr5"
+            }
+        ],
+        "sev": [
+            {
+                "nombre": "SEV Puebla Los Fuertes",
+                "imagen": "images/localizador_agencias/sev_loc_agen_1.png",
+                "contacto": "Tel: 22-22-82-70-86",
+                "enlace": "https://maps.app.goo.gl/hJtpcxsXQvRg8yFp6"
+            }
+        ],
+        "zeekr": [
+            {
+                "nombre": "Zeekr Puebla Angelópolis",
+                "imagen": "images/localizador_agencias/zeekr_loc_agen_1.png",
+                "contacto": "Tel: 55-27-34-23-86",
+                "enlace": "https://maps.app.goo.gl/keqjYqAwJeYjnKpv8"
+            }
+        ],
+        "motor": [
+            {
+                "nombre": "Motornation Ixtapaluca",
+                "imagen": "images/localizador_agencias/motor_loc_agen_1.png",
+                "contacto": "Tel: 55-27-34-23-86",
+                "enlace": "https://maps.app.goo.gl/DfHFUzBkuiLjwjZJ9"
+            }
+        ],
+        "chirey": [
+            {
+                "nombre": "Chirey Ixtapaluca",
+                "imagen": "images/localizador_agencias/chirey_loc_agen_1.png",
+                "contacto": "Tel: 55-60-90-99-64",
+                "enlace": "https://maps.app.goo.gl/Fc3LhDaNkEhvuLhVA"
+            }
+        ]
+    }
+}

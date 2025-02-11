@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IF Motors Zeekr</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/IF_LOGO_PAGINA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body id="omoda-page" class="page-8 bg-gray-100"> <!-- Añadimos un ID único para esta página -->
+
+  {% include 'components/menu_hamburguesa.html'%}
+
+    <!-- Imagen superior derecha -->
+<div class="top-right-image">
+  <img src="{% static 'images/razon_social/IF_MOTORS.png' %}" alt="Imagen superior derecha">
+</div>
+
+  <!-- Contenido principal -->
+  <main class="ml-64 p-8">
+    <h2 class="centered-title">Zeekr</h2>
+    <div class="grid-container">
+        <!-- Agencia -->
+        <div class="grid-container">
+          {% for zeekr_info in zeekr.zeekr_info %}
+            <div class="agency-card">
+              <h3><center>{{ zeekr_info.lugar }}</center></h3>
+              <img class="small-image" src="{% static zeekr_info.logo %}" alt="LOGO_SUCURSAL">
+              <img src="{% static zeekr_info.imagen %}" alt="Agencia {{ zeekr_info.lugar }}">
+              <p>{{ zeekr_info.concecionario }}</p>
+              <p>{{ zeekr_info.direccion }}</p>
+              <p><a href="{{ zeekr_info.enlace }}" target="_blank">{{ zeekr_info.enlace }}</a></p>
+              <p>Teléfono de contacto: <a href="tel:{{ zeekr_info.telefono }}">{{ zeekr_info.telefono }}</a></p>
+
+          <!-- Redes sociales -->
+          <div class="social-icons" style="margin-top: 10px; display: flex; gap: 15px; justify-content: center;">
+            <a href="{{ zeekr_info.facebook }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="{{ zeekr_info.instagram }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/{{ zeekr_info.whatsapp }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="{{ zeekr_info.linkedin }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+    {% include 'components/pie_de_pagina.html'%}
+
+  </main>
+
+</body>
+</html>

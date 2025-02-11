@@ -1,0 +1,34 @@
+{
+    "notas": [
+        {
+            "imagen": "images/Notas/nota_1.png",
+            "titulo": "Nota 1",
+            "descripcion": "Nota 1",
+            "enlace": "https://www.facebook.com/share/p/15DGu3AS2g/"
+        },
+        {
+            "imagen": "images/Notas/nota_2.png",
+            "titulo": "Nota 2",
+            "descripcion": "Nota 2",
+            "enlace": "https://www.facebook.com/share/p/19bh69EBUh/"
+        },
+        {
+            "imagen": "images/Notas/nota_3.png",
+            "titulo": "Nota 3",
+            "descripcion": "Nota 3",
+            "enlace": "https://www.facebook.com/share/p/14aaNQuMo6/"
+        },
+        {
+            "titulo": "Nota 4",
+            "descripcion": "Nota 4",
+            "enlace": "https://www.google.com/search?sca_esv=d7e7d90bd6b3a957&sxsrf=ADLYWILqfOngJZeDxt5kY5ljsTGitUwGPg:1733936700917&q=essex+chibi&udm=2&fbs=AEQNm0CbCVgAZ5mWEJDg6aoPVcBgWizR0-0aFOH11Sb5tlNhd7Qv31WAq-g3XdD7m281OKwjD4okv4LhuaNmkXELnX7sHY0c09xzP6dXB3N73nDgWKR8nPV-d414i_6mlPOmbAY7BnE9m1JG0RvUnDDrZvT-d8-iZR8MXlW3RzZ_JkxKdkxfcZuJgHgros_GHSnI7AkvpwrvWsiHGvXxnBE1LzC7L0E-zw&sa=X&ved=2ahUKEwiHvvrImaCKAxXBLkQIHQvjHhAQtKgLegQIFhAB&biw=1920&bih=953#vhid=Q_fx-prBNdYcGM&vssid=mosaic",
+            "imagen": "images/Notas/nota_4.png"
+        },
+        {
+            "titulo": "Nota 5",
+            "descripcion": "Nota 5",
+            "enlace": "",
+            "imagen": "images/Notas/nota_5.png"
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Fersan Motors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body> 
+
+<!-- ANIMACION DE CARGA DE PAGINA -->  
+
+  <div id="loading-screen">
+    <div class="car">
+        <img src="{% static 'images/vochito.png' %}" alt="Carro en movimiento">
+    </div>
+</div>
+
+<script>
+window.addEventListener("load", function() {
+    const loadingScreen = document.getElementById("loading-screen");
+    setTimeout(function() {
+        loadingScreen.style.display = "none";
+    }, /* 1000 */); /* AGREGAR EL TIEMPO DE DELAY PARA QUE SE APRECIE LA ANIMACION DE CARGA */
+});
+
+</script>
+
+
+<!-- menú hamburguesa -->
+<input type="checkbox" id="menu-toggle" style="display: none;">
+<label for="menu-toggle" class="hamburger-menu">
+  <div></div>
+  <div></div>
+  <div></div>
+</label>
+
+<!-- Encabezado -->
+<header>
+  <div class="logo-container">
+    <!-- Imagen fuera del enlace -->
+    <img src="{% static 'images/fersan.png' %}" alt="Logo">
+    
+    <!-- Solo el texto estará dentro del enlace -->
+    <a href="{% url 'home' %}">
+      <h1>Grupo Fersan Motors</h1>
+    </a>
+  </div>
+  
+  <div>
+    <a href="{% url 'inicio_usuario' %}">Iniciar sesión</a>
+
+  </div>
+</header>
+
+<!-- Menú lateral -->
+<aside>
+  <nav class="space-y-4 p-4">
+    <a href="{% url 'marcas' %}">Marcas</a>
+    <a href="{% url 'localizador_agencias' %}">Localizador de Agencias</a>
+    <a href="{% url 'atencion_al_cliente' %}">Atención al cliente</a>
+    <a href="{% url 'agendar_cita' %}">Cita de servicio</a>
+    <a href="{% url 'acerca_empresa' %}">Acerca de la empresa</a>
+  </nav>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/share/hEiR7s5BqgHRd7wo/" target="_blank">
+      <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="hover-effect">
+    </a>
+    <a href="https://www.instagram.com/fersanmotorsixtapaluca?igsh=MXBnZWhqMHhxeXY3Ng==" target="_blank">
+      <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="hover-effect">
+    </a>
+    <a href="https://x.com/VwFersan?t=h91RupPeyFpFNE0Xmn_i0A&s=09" target="_blank">
+      <img src="{% static 'images/twitterx.png' %}" alt="X" class="hover-effect">
+    </a>
+    <a href="https://mx.linkedin.com/company/fersan-motors-s.a.-de-c.v." target="_blank">
+      <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" class="hover-effect">
+    </a>
+  </div>
+</aside>
+
+</body>
+</html>

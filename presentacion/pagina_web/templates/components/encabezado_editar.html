@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Fersan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles_editar.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body> 
+
+<!-- ANIMACION DE CARGA DE PAGINA -->  
+<div id="loading-screen">
+  <div class="brand-logo-container">
+    <img src="{% static 'images/LOGO_PARA_CARGA/fersan_carga.png' %}" alt="Logotipo de la Marca">
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const loadingScreen = document.getElementById("loading-screen");
+  setTimeout(() => {
+    loadingScreen.classList.add("hidden");
+  }, 1000);
+});
+</script>
+
+  <header>
+    <div class="logo-container">
+      <img src="{% static 'images/fersan_blanco.png' %}" alt="Logo">
+      <a href="{% url 'home' %}"><h1>Grupo Fersan Editar</h1></a>
+    </div>
+
+    <div>
+      <a href="{% url 'salir' %}" class="logout-button">Cerrar Sesión</a>
+    </div>
+    
+  </header>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,2332 @@
+
+
+/*- - - - - - - - - - - - - - - - - - ESTILO GENERAL PARA TODOS LOS HTML - - - - - - - - - - - - - - - - - -*/
+
+        /* ANIMACION PARA CARGAR PAGINA */
+        
+        /* Estilo para la pantalla de carga */
+        #loading-screen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: #000000; /* Fondo blanco */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 10000;
+          visibility: visible; /* Visible por defecto */
+          opacity: 1;
+          transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        
+
+        /* Ocultar la pantalla de carga */
+        #loading-screen.hidden {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        /* Estilo para el contenedor del logotipo */
+        .brand-logo-container {
+          display: inline-block;
+          width: auto;
+          opacity: 0;
+          animation: slideInLogo 2s ease-out forwards;
+          animation-delay: 0.5s;
+        }
+
+        /* Animación de deslizamiento del logotipo */
+        @keyframes slideInLogo {
+          0% {
+            transform: translateX(-50px);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        /* Estilo para el logotipo */
+        .brand-logo-container img {
+          width: 150px;
+          height: auto;
+        }
+
+
+        /* Aplicar la fuente Lato */
+        body, header, aside, main, h1, h2, h3, p, a {
+          font-family: 'Lato', sans-serif;
+        }
+
+        /* Encabezado */
+        header {
+          background: var(--header-background-gradient);
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1300;
+          height: 60px;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0px 4px 8px var(--header-shadow-color);
+        }
+
+        /* Estilo del logo */
+        header .logo-container {
+          display: flex;
+          align-items: center;
+          margin-left: 50px;
+        }
+
+        header .logo-container img {
+          height: 40px;
+          opacity: 0.9;
+          margin-right: 16px;
+        }
+
+        /* Estilo para el texto dentro del enlace */
+        header .logo-container a h1 {
+          color: #E2E8F0;
+          font-size: 20px;
+          font-weight: bold;
+          margin: 0;
+          font-family: 'Montserrat', sans-serif;
+          white-space: nowrap;
+        }
+
+        header .logo-container a {
+          text-decoration: none;
+          display: inline-block;
+          transition: color 0.3s ease;
+        }
+
+        /* Color al pasar el ratón */
+        header .logo-container a:hover h1 {
+          color: #F56565;
+        }
+
+
+        /* Ajuste para pantallas pequeñas */
+        @media (max-width: 768px) {
+          header {
+            padding: 0 10px; /* Reduce el espacio lateral */
+          }
+
+          header h1 {
+            font-size: 16px; /* Reduce tamaño del título */
+          }
+
+          /* Logotipo de la marca */
+          header .logo-container {
+            margin-left: 35px; /* Aleja el logotipo del menú hamburguesa */
+          }
+
+          header img {
+            height: 35px; /* Reduce el tamaño del logotipo */
+          }
+          .hamburger-menu {
+            position: absolute; /* Posición fija con relación al encabezado */
+            top: 10px; /* Ajuste para centrarse verticalmente */
+            left: 10px; /* Alejado del borde izquierdo */
+            width: 35px;
+            height: 35px;
+          }
+
+          .hamburger-menu div {
+            width: 18px;
+            height: 2.5px;
+          }
+        }
+
+          /* Menú lateral */
+          aside {
+            width: 250px;
+            background: var(--menu-background-gradient);
+            color: var(--menu-link-color);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 90px var(--menu-padding) var(--menu-padding) var(--menu-padding);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Asegura que el contenido se distribuya */
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(0);
+            box-shadow: 2px 0 10px var(--header-shadow-color);
+          }          
+
+          /* Estilo para los enlaces del menú lateral */
+          aside nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly; /* Distribuye los elementos uniformemente */
+            flex-grow: 1; /* Permite que ocupe el espacio disponible */
+          }
+
+          /* Estilo para los enlaces del menú lateral con iconos */
+          aside nav a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            color: var(--menu-link-color);
+            text-decoration: none;
+            border-radius: var(--menu-border-radius);
+            margin-bottom: 10px;
+            font-size: var(--menu-link-font-size);
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+          }
+
+          /* Iconos en los enlaces */
+          aside nav a i {
+            margin-right: 10px; /* Espacio entre el icono y el texto */
+            font-size: 18px; /* Tamaño de los iconos */
+            transition: transform 0.3s ease; /* Efecto al pasar el cursor */
+          }
+
+          /* Hover para enlaces */
+          aside nav a:hover {
+            background-color: var(--menu-link-hover-background);
+            padding-left: 20px;
+          }
+
+          /* Hover para iconos */
+          aside nav a:hover i {
+            transform: translateX(5px); /* Mueve el icono al pasar el cursor */
+          }
+
+          /* Estilo para la sección activa */
+          aside nav a.active {
+            background-color: var(--menu-link-active-background);
+            font-weight: bold;
+          }
+
+
+          /* Ajuste para el último enlace, para que no se pegue demasiado a los iconos sociales */
+          aside nav a:last-child {
+            margin-bottom: 30px; /* Aumenta el margen inferior del último enlace */
+          }
+
+          
+
+          /* Estilo para el enlace de "Iniciar sesión" */
+          .login-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--btn-bg-color); /* Uso de la variable global */
+            color: var(--btn-text-color); /* Uso de la variable global */
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.3s ease;
+            margin-bottom: 0px;
+          }
+
+          .login-btn:hover {
+            background-color: var(--btn-hover-bg-color); /* Uso de la variable global */
+            transform: scale(1.05);
+          }
+
+
+          /* Ajustar los iconos sociales para que estén cerca del botón */
+          .social-icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 80; /* Sin margen superior para acercarlos más al botón */
+            margin-bottom: 0px;
+          }
+
+          .social-icons img {
+            width: 30px;
+            height: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            margin: 10px; /* Ajusta el espacio entre los iconos */
+          }
+
+          .social-icons img:hover {
+            transform: rotate(360deg) !important;
+            filter: brightness(1.2) !important;
+          }
+
+          /* Ajustes para pantallas pequeñas */
+          @media (max-width: 768px) {
+            .social-icons {
+              margin-bottom: 70px; /* Reduce el margen inferior */
+              margin-top: 70px;
+            }
+
+            .social-icons img {
+              width: 20px; /* Reduce el tamaño de los iconos */
+              margin: 1.5px; /* Ajusta el espacio entre los iconos para pantallas pequeñas */
+            }
+
+            .login-btn {
+              font-size: 11px; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+              padding: 8px 10px; /* Reduce el tamaño del botón */
+            }
+          }
+
+
+        /* Checkbox para controlar el menú */
+        #menu-toggle:checked ~ aside {
+          transform: translateX(-250px);
+        }
+
+        #menu-toggle:checked ~ main {
+          margin-left: 0;
+        }
+
+        /* Botón de menú hamburguesa */
+        .hamburger-menu {
+          position: fixed; /* Fijarlo en la parte superior */
+          top: 10px; /* Ajusta para centrarlo o dejarlo en la parte superior */
+          left: 10px; /* Aleja del borde izquierdo */
+          z-index: 1350;
+          cursor: pointer;
+          background-color: var(--hamburger-background-color);
+          width: var(--hamburger-size);
+          height: var(--hamburger-size);
+          border-radius: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .hamburger-menu:hover {
+          filter: brightness(1.2);
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Líneas del icono de la hamburguesa */
+        .hamburger-menu div {
+          width: 18px;
+          height: 2.5px;
+          background-color: #E2E8F0;
+          margin: 2px 0;
+          border-radius: 1px;
+        }
+
+        /* Contenedor principal */
+        main {
+          margin-left: 270px;
+          padding: 20px;
+          box-sizing: border-box;
+          transition: margin-left 0.3s ease-in-out;
+          margin-top: 60px;
+        }
+
+        /* Animaciones de entrada */
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .agency-card {
+          animation: slideIn 0.5s ease-out;
+        }
+
+        /* Ajustes del menú lateral en pantallas pequeñas */
+        @media (max-width: 768px) {
+          header h1 {
+            font-size: 20px;
+          }
+
+          header input[type="text"] {
+            font-size: 12px;
+          }
+
+          .hamburger-menu {
+            width: 35px;
+            height: 35px;
+            top: 10px;
+            left: 10px;
+          }
+
+          .hamburger-menu div {
+            width: 18px;
+            height: 2.5px;
+          }
+
+          aside {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            z-index: 1100;
+          }
+
+          #menu-toggle:checked ~ aside {
+            transform: translateX(0);
+            opacity: 1;
+          }
+
+          main {
+            margin-left: 0;
+            width: 100%;
+            padding: 20px;
+          }
+
+          #menu-toggle:checked ~ main {
+            display: none;
+          }
+        }
+
+                /* Asegurar que el contenido ocupe el 100% de la altura de la ventana */
+        html, body {
+          height: 100%;
+          margin: 0;
+        }
+
+        body {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh; /* Asegura que el contenido ocupe al menos el 100% de la altura de la ventana */
+        }
+
+        main {
+          flex: 1; /* Esto hace que el contenido ocupe el espacio disponible entre el encabezado y el pie de página */
+        }
+
+        /* Estilos generales para el pie de página */
+        #footer {
+          background-color: var(--footer-bg-color);
+          color: var(--footer-text-color);
+          padding: var(--footer-padding) 0;
+          font-size: var(--footer-font-size);
+          position: relative;
+          z-index: 10;
+        }
+
+        #footer .fooster-container {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          margin-bottom: var(--footer-padding);
+        }
+
+        #footer .fooster-container div {
+          width: 23%;
+          margin: 0 1%;
+        }
+
+        #footer h3 {
+          font-size: var(--footer-heading-font-size);
+          margin-bottom: 10px;
+        }
+
+        #footer p, #footer ul {
+          font-size: var(--footer-font-size);
+          line-height: 1.6;
+        }
+
+        #footer a {
+          color: var(--footer-link-color);
+          text-decoration: none;
+        }
+
+        #footer a:hover {
+          color: var(--footer-link-hover-color);
+          text-decoration: underline;
+        }
+
+        #footer hr {
+          border-color: var(--footer-hr-color);
+          margin: var(--footer-padding) 0;
+        }
+
+        #footer .footer-bottom {
+          text-align: center;
+          margin-top: var(--footer-padding);
+        }
+
+        #footer .footer-bottom p {
+          font-size: calc(var(--footer-font-size) - 2px); /* Tamaño de fuente ligeramente más pequeño */
+        }
+
+        /* Media Query para pantallas de tamaño medio (Tabletas) */
+        @media (max-width: 768px) {
+          #footer .fooster-container div {
+            width: 48%; /* Dos columnas */
+          }
+
+          #footer .footer-bottom p {
+            font-size: var(--footer-font-size); /* Aumentar tamaño de texto en móviles */
+          }
+
+          #footer p, #footer ul {
+            font-size: calc(var(--footer-font-size) - 2px); /* Ajuste de tamaño de fuente */
+          }
+        }
+
+        /* Media Query para pantallas pequeñas (Móviles) */
+        @media (max-width: 480px) {
+          #footer .fooster-container {
+            flex-direction: column; /* Cambiar a una sola columna */
+            align-items: center; /* Centrar elementos */
+          }
+
+          #footer .fooster-container div {
+            width: 100%; /* Cada columna ocupa el 100% del ancho */
+            margin: 10px 0; /* Separación entre las secciones */
+          }
+
+          #footer .footer-bottom p {
+            font-size: calc(var(--footer-font-size) - 2px); /* Ajuste de tamaño de fuente */
+          }
+
+          #footer p, #footer ul {
+            font-size: calc(var(--footer-font-size) - 3px); /* Ajuste de tamaño de fuente */
+          }
+
+          #footer h3 {
+            font-size: calc(var(--footer-heading-font-size) - 2px); /* Ajuste de tamaño de títulos */
+          }
+
+          #footer hr {
+            margin: 10px 0; /* Ajustar espacio del hr */
+          }
+        }
+
+        :root {
+          --background-color: #dadde0;
+          --text-color: #EAECEE;
+          --title-color: #34495e;
+          --card-background-color: #4A4A4A;
+          --card-text-color: #EAECEE;
+          --card-title-color: #d8dfe6;
+
+          /* Colores generales */
+          --header-background-gradient: #000000;
+          --header-shadow-color: rgba(0, 0, 0, 0.3);
+          --menu-background-gradient: #252729;
+          --menu-link-color: white;
+          --menu-link-active-background: rgba(46, 48, 51, 0.9);
+          --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+
+          /* Botón de menú hamburguesa */
+          --hamburger-background-color: #000000;
+          --hamburger-size: 35px;
+
+          /* Fuentes y tamaños */
+          --menu-link-font-size: 16px;
+          --menu-padding: 16px;
+          --menu-border-radius: 5px;
+
+          --btn-bg-color: linear-gradient(135deg, #323639, #1F2427);; /* Color de fondo del botón */
+          --btn-hover-bg-color: #000000; /* Color de fondo al pasar el ratón */
+          --btn-text-color: white; /* Color del texto del botón */
+
+          /*Pie de pagina*/
+          --footer-bg-color: #000000; /* Color de fondo del pie de página */
+          --footer-text-color: #EAECEE; /* Color del texto */
+          --footer-link-color: #88C0D0; /* Color de los enlaces */
+          --footer-link-hover-color: #ffd700; /* Color de los enlaces al pasar el ratón */
+          --footer-hr-color: #444; /* Color de las líneas <hr> */
+          --footer-padding: 20px; /* Padding general */
+          --footer-font-size: 14px; /* Tamaño de fuente general */
+          --footer-heading-font-size: 16px; /* Tamaño de fuente de los encabezados */
+          
+        }
+
+        /*- - - - - - - - - - - - - - - - - HTML MOTORNATION - - - - - - - - - - - - - - - - - */
+          #motornation-page .centered-title {
+            color: #000000 !important; /* Asegúrate de usar esto solo si es necesario */
+          }
+
+          #motornation-page {
+            background-color: #dadde0;
+            color: #EAECEE;
+          }
+          #motornation-page .agency-card img {
+            max-width: 200px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            filter: contrast(1.1) saturate(1.2); /* Mejora de imagen */
+            
+          }    
+          #motornation-page .agency-card h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #feffff; /* Color del título */
+            margin-bottom: 10px;
+          }
+
+          #motornation-page .agency-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #EAECEE;
+          }
+
+          #motornation-page #brands-section .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+          }
+
+          #motornation-page #brands-section .brands-grid .agency-card {
+            background-color: #000000; /* Fondo negro */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            transition: transform 0.2s ease-in-out;
+            color: #EAECEE;
+          }
+          #motornation-page #motornation-content .content-grid .agency-card {
+            background-color: #000000; /* Fondo oscuro personalizado */
+            color: #dadde0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Espaciado general entre los elementos */
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+        }
+          #motornation-page #motornation-content .content-grid .agency-card img {
+            width: 100%; /* La imagen ocupará el ancho completo del contenedor */
+            max-width: 300px; /* Tamaño máximo para evitar que sea demasiado grande */
+            height: auto; /* Mantener la proporción */
+            margin-bottom: 15px; /* Espaciado inferior */
+            border-radius: 5px; /* Esquinas redondeadas */
+        }
+          #motornation-page #motornation-content .content-grid .agency-card a {
+            color: #D1251B ; /* Color inicial del enlace en tono azul claro */
+            text-decoration: none; /* Sin subrayado inicialmente */
+            transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave */
+          }
+          #motornation-page #motornation-content .content-grid .agency-card a:hover {
+            color: #88C0D0; /* Cambia el color al pasar el cursor a un tono magenta para destacar */
+            text-decoration: underline; /* Subraya al pasar el cursor */
+          }
+          #motornation-page .small-image {
+            width: 150px !important;  /* Asegura que esta regla sea aplicada */
+            height: auto !important; /* Mantiene la proporción */
+        }              
+
+          /* Animación de entrada */
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          /* Imagen del logotipo en la esquina superior derecha */
+          #motornation-page .top-right-image {
+            position: absolute;
+            top: 80px; /* Distancia desde la parte superior */
+            right: 20px; /* Distancia desde la derecha */
+            z-index: 10; /* Asegura que la imagen esté encima de otros elementos */
+          }
+
+          #motornation-page .top-right-image img {
+            width: 150px; /* Tamaño del logotipo */
+            height: auto; /* Mantiene proporciones */
+            border-radius: 8px; /* Opcional: bordes ligeramente redondeados */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: sombra ligera */
+          }
+
+          /* Diseño responsivo */
+          @media (max-width: 768px) {
+            #motornation-page .top-right-image {
+              top: 80px; /* Ajusta la distancia en pantallas más pequeñas */
+              right: 15px;
+            }
+
+            #motornation-page .top-right-image img {
+              width: 120px; /* Reduce el tamaño del logotipo */
+            }
+          }
+
+          @media (max-width: 480px) {
+            #motornation-page .top-right-image {
+              top: 80px; /* Aumenta el espacio en pantallas muy pequeñas */
+              right: 10px;
+            }
+
+            #motornation-page .top-right-image img {
+              width: 100px; /* Logotipo aún más pequeño */
+            }
+          }
+
+        /*- - - - - - - - - - - - - - - - - HTML MARCAS - - - - - - - - - - - - - - - - - */
+
+        #marcas-page {
+          background-color: #000000;
+          color: #EAECEE;
+        }
+        #marcas-page #brands-title {
+          text-align: center;
+          font-size: 2rem;
+          font-weight: bold;
+          color: #EAECEE;
+          margin-bottom: 20px;
+        }
+
+        #marcas-page .centered-title {
+          text-align: center;
+          font-size: 2rem;
+          font-weight: bold;
+          color: #ffffff; /* Azul claro */
+        }
+        /* Diseño de los cuadros de las agencias */
+        
+        #marcas-page .grid-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta la cantidad de columnas automáticamente */
+          gap: 40px; /* Espaciado entre los cuadros */
+          justify-items: center; /* Centra los ítems en la cuadrícula */
+        }
+
+        #marcas-page .agency-card {
+          background-color: #252729; /* Gris oscuro con un tono neutro cálido */
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.2s ease-in-out;
+          height: 250px;
+          width: 200px;
+          color: #E2E8F0; /* Texto en gris muy claro para contraste */
+      }
+      
+      /* Agregar efecto al pasar el ratón */
+      #marcas-page .agency-card:hover {
+          transform: scale(1.05); /* Suave aumento de tamaño en hover */
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+      }
+      
+
+        #marcas-page .agency-card img {
+            width: 100%; 
+            max-width: 150px; /* Ancho máximo de la imagen */
+            height: 100px; /* Altura de la imagen */
+            object-fit: contain; /* Asegura que la imagen mantenga su relación de aspecto */
+            margin-bottom: 15px; /* Espacio debajo de la imagen */
+        }
+        /*- - - - - - - - - - - - - - - - - HTML HOME - - - - - - - - - - - - - - - - - */
+
+        /* Fondo y títulos */
+      #home-page {
+        background-color: #000000;
+        color: #2c3e50;
+        font-family: "Roboto", sans-serif;
+      }
+      
+      #home-page #brands-title,
+      #home-page .centered-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      /* Estilo del carrusel */
+      #home-page .carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Centrar el carrusel */
+        align-items: center;
+        position: relative;
+        background-color: #252729; /* Fondo ligero para el carrusel */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Contenedor del carrusel */
+      #home-page .carousel-container {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+        gap: 20px;
+        padding: 20px;
+        /* No se necesita justify-content aquí */
+      }
+
+      /* Diseño de las tarjetas */
+      #home-page .agency-card {
+        padding: 20px;
+        flex: 0 0 200px;
+        height: 200px;
+        background: #cecbcb;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+      }
+
+      #home-page .agency-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      #home-page .agency-card.active {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #1abc9c, #16a085); /* Fondo dinámico */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Imagen dentro de las tarjetas */
+      #home-page .agency-card img {
+        max-width: 100%;
+        max-height: 80%;
+        object-fit: contain;
+      }
+
+      /* Botones del carrusel */
+      #home-page .carousel-btn {
+        background-color: rgba(44, 62, 80, 0.7);
+        color: #ecf0f1;
+        border: none;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      #home-page .carousel-btn:hover {
+        background-color: rgba(52, 73, 94, 0.9);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      #home-page .left-btn {
+        left: 10px;
+      }
+
+      #home-page .right-btn {
+        right: 10px;
+      }
+
+      /* Responsividad adicional */
+      @media (max-width: 768px) {
+        #home-page .agency-card {
+          flex: 0 0 100px; /* Ajuste de ancho en pantallas pequeñas */
+          height: 120px; /* Ajuste de alto */
+        }
+
+        #home-page .carousel-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+      }
+        /* Estilo del modal */
+        #home-page .modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient( rgba(34, 49, 63, 0.8), rgba(41, 128, 185, 0.8)); /* Efecto degradado tipo paisaje */
+          backdrop-filter: blur(5px); /* Desenfoque de fondo */
+          z-index: 9999;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+        }
+
+        /* Cuando el modal está activo */
+        #home-page .modal.active {
+          display: flex;
+        }
+
+        /* Contenedor del contenido del modal */
+        #home-page .modal-content {
+          background: #ffffff; /* Fondo degradado */
+          border-radius: 15px;
+          padding: 40px;
+          position: relative;
+          width: 50%;
+          max-width: 500px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Sombra más profunda */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          animation: fadeIn 0.4s ease-out;
+        }
+
+        /* Imagen dentro del modal */
+        #home-page #modal-image {
+          width: 100%;
+          max-width: 400px; /* Tamaño máximo más grande */
+          height: auto;
+          max-height: 400px; /* Altura máxima para hacerlo más cuadrado */
+          object-fit: cover;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); /* Sombra ligera */
+          margin-bottom: 20px;
+        }
+
+        /* Capa oscura al pasar el mouse */
+        #home-page .info-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 8px;
+        }
+
+        #home-page .image-container:hover .info-overlay {
+          opacity: 1;
+        }
+
+        /* Texto en el overlay */
+        #home-page .info-text {
+          color: white;
+          text-align: center;
+          font-size: 18px;
+          padding: 10px;
+          border-radius: 8px;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        #home-page .image-container:hover .info-text {
+          opacity: 1;
+        }
+
+        /* Botón de cerrar */
+        #home-page .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: rgba(255, 255, 255, 0.2);
+          color: #fff;
+          font-size: 18px;
+          border: none;
+          cursor: pointer;
+          padding: 8px 16px;
+          border-radius: 12%;
+          transition: background-color 0.3s ease;
+        }
+
+        #home-page .close-btn:hover {
+          background-color: rgba(255, 255, 255, 0.5); /* Resalta al pasar el mouse */
+        }
+
+        /* Fondo oscurecido cuando el modal está activo */
+        #home-page .modal.active + .modal-backdrop {
+          display: block;
+        }
+
+        #home-page .modal-backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+        }
+
+        /* Animación de aparición */
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        /* Media Queries para pantallas pequeñas */
+        @media screen and (max-width: 768px) {
+          #home-page .modal-content {
+            width: 90%; /* Más ancho en pantallas pequeñas */
+            padding: 15px; /* Reducir padding */
+          }
+
+          #home-page #modal-image {
+            max-width: 100%; /* Ocupar todo el ancho */
+            max-height: 250px; /* Ajustar la altura */
+          }
+
+          #home-page .close-btn {
+            top: 5px;
+            right: 5px;
+            font-size: 16px; /* Botón más pequeño */
+            padding: 6px 12px; /* Reducir tamaño del botón */
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          #home-page .modal-content {
+            width: 95%; /* Casi todo el ancho */
+            padding: 10px; /* Padding mínimo */
+          }
+
+          #home-page #modal-image {
+            max-height: 200px; /* Más bajo para pantallas muy pequeñas */
+          }
+
+          #home-page .close-btn {
+            font-size: 14px; /* Botón más pequeño aún */
+            padding: 4px 10px; /* Reducir tamaño del botón */
+          }
+        }
+        /*CARRUSEL PARA LAS TRAJETAS DE INFORMACION*/
+
+        /* Estilos para el carrusel de información */
+        #home-page .info-carousel-wrapper {
+          position: relative;
+          overflow: hidden;
+          width: 100%;
+          margin-top: 30px;
+        }
+
+        #home-page .info-carousel {
+          display: flex;
+          transition: transform 0.5s ease;
+        }
+
+        #home-page .info-card {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          min-width: 100%;
+          height: 300px;
+          background-color: #252729;
+          border-radius: 10px;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+
+        #home-page .info-card img {
+          width: 50%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        #home-page .info-content {
+          width: 50%;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        #home-page .info-content h3 {
+          font-size: 1.8em;
+          margin-bottom: 10px;
+          color: #ffffff;
+        }
+
+        #home-page .info-content p {
+          font-size: 1em;
+          color: #ffffff;
+        }
+
+        /*TARJETAS DE NOTAS DE INTERES*/
+
+        /* Contenedor general del carrusel */
+        #home-page .interest-carousel-wrapper {
+          display: flex;
+          overflow: hidden;
+          position: relative;
+          margin-top: 40px;
+        }
+
+        /* Estilos del contenedor de tarjetas */
+        #home-page .interest-carousel {
+          display: flex;
+          gap: 20px;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+        }
+
+        #home-page .interest-carousel::-webkit-scrollbar {
+          display: none; /* Oculta la barra de desplazamiento */
+        }
+
+        /* Estilo de cada tarjeta */
+        #home-page .interest-card {
+          width: 250px; /* Fija el ancho de cada tarjeta */
+          height: 300px; /* Fija la altura de cada tarjeta */
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          overflow: hidden;
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; /* Asegura que el contenido esté distribuido */
+        }
+
+        /* Imagen de la tarjeta */
+        #home-page .interest-card img {
+          width: 100%;
+          height: 120px; /* Ajusta la altura de la imagen para consistencia */
+          object-fit: cover; /* Recorta la imagen para que encaje en el espacio sin deformarse */
+        }
+
+        /* Contenido de texto en la tarjeta */
+        #home-page .interest-content {
+          padding: 10px;
+          background-color: #252729;
+          color: #ffffff;
+          flex-grow: 1; /* Permite que el contenido de texto ocupe el espacio disponible */
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; /* Distribuye el contenido de texto dentro del espacio */
+        }
+
+        #home-page .interest-content h3 {
+          font-size: 0.9rem;
+          font-weight: bold;
+          margin: 0 0 5px;
+          line-height: 1.2em;
+          max-height: 2.4em; /* Limita el título a 2 líneas */
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        #home-page .interest-content p {
+          font-size: 0.8rem;
+          margin: 0;
+          line-height: 1.2em;
+          max-height: 3.6em; /* Limita el párrafo a 3 líneas */
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        
+        /* Estilo básico del botón */
+        #home-page button {
+          padding: 10px 20px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* Efecto al pasar el cursor sobre el botón */
+        #home-page button:hover {
+          background-color: #45a049; /* Cambio de color al pasar el cursor */
+          transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+        }
+
+        /* Efecto al hacer clic en el botón */
+        #home-page button:active {
+          background-color: #388e3c; /* Color más oscuro cuando se hace clic */
+          transform: scale(0.98); /* Hace que el botón se haga más pequeño al hacer clic */
+        }
+        #home-page * {
+          box-sizing: border-box;
+        }
+
+     /*- - - - - - - - - - - - - - - - - HTML ACERCA DE LA EMPRESA - - - - - - - - - - - - - - - - - - -*/
+
+        /* Color al pasar el ratón */
+        #acerca-page header .logo-container a:hover h1 {
+          color: #F56565;
+        }
+        #acerca-page .centered-title {
+          color: #ffffff !important;
+        }
+     
+        #acerca-page {
+          background-color: #000000;
+          color: #EAECEE;
+          position: relative; /* Contenedor relativo para posicionar elementos absolutos */
+        }
+        /* Rediseño del contenido principal */
+        #acerca-page main {
+          margin-top: 60px;
+          animation: slideIn 0.5s ease-out;
+          background-color: #000000;
+          color: #EAECEE;
+        }
+
+        /* Estilos para las etiquetas h3 dentro de recuadros */
+        #acerca-page .h3-box {
+          background-color: #252729;
+          color: #EAECEE;
+          padding: 20px;
+          border-radius: 20px;
+          box-shadow: 0 12px 15px rgba(0, 0, 0, 0.2);
+          border: 2px solid transparent; /* Borde transparente inicial */
+          transition: border 0.3s, box-shadow 0.3s, transform 0.3s;
+          margin-top: 80px; /* Espacio superior para evitar colisión con el logo */
+          margin-bottom: 20px;
+          animation: slideIn 0.5s ease-out;
+        }
+
+        /* Efecto de borde y sombra azul al pasar el mouse */
+        #acerca-page .h3-box:hover {
+          border-color: #58A6FF; /* Color azul para resaltar el contorno */
+          box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); /* Sombra azul para resaltado */
+          transform: translateY(-5px); /* Efecto de elevación */
+        }
+
+        #acerca-page .h3-box h3 {
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.25rem;
+          font-weight: bold;
+          color: #ffffff;
+          margin-bottom: 10px;
+        }
+
+        /* Animación de entrada */
+        @keyframes slideIn {
+          from {
+              opacity: 0;
+              transform: translateX(-50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateX(0);
+          }
+        }
+
+        /* Fondo y fuente de la página */
+        #acerca-page body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #F4F5F7;
+        }
+
+        #acerca-page h1, h2, h3 {
+          font-family: 'Montserrat', sans-serif;
+          color: #fefeff;
+        }
+
+        #acerca-page p {
+          font-size: 1rem;
+          color: #EAECEE;
+        }
+        /* Estilos para la imagen en la esquina superior derecha */
+        #acerca-page .top-right-logo {
+          position: absolute; /* Posición fija en relación al contenedor principal */
+          top: 70px; /* Distancia desde la parte superior */
+          right: 10px; /* Distancia desde la derecha */
+          z-index: 10; /* Asegura que esté por encima de otros elementos */
+          background-color: rgb(209, 208, 208); /* Fondo blanco */
+          padding: 5px; /* Espaciado interno */
+          border-radius: 8px; /* Bordes redondeados */
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+          margin-top: 10px; /* Espacio encima del contenedor */
+          margin-bottom: 20px; /* Espacio debajo del contenedor */
+        }
+        
+        
+        #acerca-page .top-right-logo img {
+          width: 80px; /* Tamaño reducido */
+          height: auto; /* Mantiene la proporción */
+          border-radius: 8px; /* Bordes ligeramente redondeados */
+          display: block; /* Asegura que la imagen respete el padding del contenedor */
+          margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+        
+
+        /* Adaptaciones responsivas para pantallas más pequeñas */
+        @media (max-width: 768px) {
+          #acerca-page .top-right-logo img {
+            width: 60px; /* Imagen más pequeña en pantallas medianas */
+          }
+        }
+
+        @media (max-width: 480px) {
+          #acerca-page .top-right-logo img {
+            width: 35px; /* Imagen aún más pequeña en pantallas pequeñas */
+          }
+        }
+      /*- - - - - - - - - - - - - - - - HTML ATENCION AL CLIENTE- - - - - - - - - - - - - - - - - - */
+
+        /* Color al pasar el ratón */
+        #atencion-page header .logo-container a:hover h1 {
+          color: #F56565;
+        }
+        #atencion-page .centered-title{
+          color: #ffffff !important;
+        }
+        
+        #atencion-page {
+          background-color: #000000;
+          color: #EAECEE;
+        }
+     /* Efecto hover en elementos */
+        #atencion-page .hover-effect {
+          transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        #atencion-page .hover-effect:hover {
+          transform: scale(1.1); /* Escalado sutil */
+          filter: brightness(1.2);
+          opacity: 0.9; /* Transición suave de opacidad */
+        }
+
+        /* Rediseño del contenido principal */
+        #atencion-page main {
+          margin-top: 60px; /* Espacio para no cubrir el contenido con el encabezado */
+          animation: fadeInUp 1s ease-out; /* Animación al cargar */
+        }
+
+        #atencion-page .agency-card {
+          background-color: #252729; /* Fondo oscuro personalizado */
+          color: #EAECEE; /* Texto claro para contraste */
+          padding: 30px;
+          border-radius: 12px; /* Bordes más redondeados */
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra más profunda */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efectos suaves */
+          margin-top: 5px; /* Reduce el espacio superior */
+        }
+        #atencion-page .agency-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 12px rgba(88, 101, 242, 0.4); /* Efecto de resplandor en hover */
+        }
+
+        #atencion-page .agency-card p {
+          margin: 0;
+          line-height: 1.6;
+          font-size: 0.75rem;
+          color: #EAECEE; /* Color de texto claro */
+        }
+
+        #atencion-page .icon-container {
+          display: flex;
+          align-items: center; /* Alineación vertical */
+          margin-bottom: 0.5rem;
+        }
+
+        #atencion-page .agency-card .small-icon {
+          width: 16px;
+          height: 16px;
+          margin-right: 5px;
+          display: block;
+        }
+
+        /* Estilos flex para alinear elementos */
+        #atencion-page .flex {
+          display: flex;
+          justify-content: center; /* Alineación centrada */
+          align-items: center;
+        }
+
+        /* Espaciado entre elementos en una fila */
+        #atencion-page .space-x-4 > *:not(:last-child) {
+          margin-right: 1rem;
+        }
+
+        /* Diseño del grid para la disposición de las tarjetas */
+        #atencion-page .grid-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Mínimo de 350px para un diseño limpio */
+          gap: 20px;
+          margin-top: 80px; /* Espacio adicional para un mejor balance */
+          padding: 20px;
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(10px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+        }
+
+        /* Estilos para los enlaces dentro de las tarjetas */
+        #atencion-page .agency-card a {
+          color: #88C0D0; /* Color inicial del enlace en tono azul claro */
+          text-decoration: none; /* Sin subrayado inicialmente */
+          transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave */
+        }
+
+        #atencion-page .agency-card a:hover {
+          color: #E86A92; /* Cambia el color al pasar el cursor a un tono magenta para destacar */
+          text-decoration: underline; /* Subraya al pasar el cursor */
+        }
+
+        /* Animación para la entrada del contenido */
+        @keyframes fadeInUp {
+          0% {
+              opacity: 0;
+              transform: translateY(10px);
+          }
+          100% {
+              opacity: 1;
+              transform: translateY(0);
+          }
+        }
+
+        #atencion-page body {
+          font-family: 'Poppins', sans-serif; /* Fuente moderna y profesional */
+          background-color: #F4F5F7; /* Fondo claro para un diseño limpio */
+        }
+
+        #atencion-page h1, h2, h3 {
+          font-family: 'Montserrat', sans-serif; /* Fuente para títulos */
+          color: #ffffff;
+        }
+
+        #atencion-page p {
+          font-size: 1rem;
+          color: #ffffff; /* Texto oscuro pero suave */
+        }
+        #atencion-page .social-icons img:hover {
+          transform: rotate(360deg); /* Rotación suave */
+          filter: brightness(1.2);
+        }
+/*               - - - - - - - - - - - - - - - - HTML CITA DE SERVICIO- - - - - - - - - - - - - - - - - - 
+
+               Animación para la entrada del contenido 
+            @keyframes fadeInUp {
+              0% {
+                  opacity: 0;
+                  transform: translateY(10px);
+              }
+              100% {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+            }
+            #cita-page .centered-title{
+              color: #34495e !important;
+            }
+
+            #cita-page {
+              background-color: #dadde0;
+              color: #EAECEE;
+            }
+
+             Estilos principales para la página de citas 
+            #cita-page main {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 60px;
+              gap: 2rem;
+              padding: 2rem;
+              animation: fadeInUp 0.6s ease-out;  Animación aplicada 
+            }
+
+            #cita-page .form-container {
+              background-color: #4A4A4A;
+              padding: 2rem;
+              border-radius: 0.5rem;
+              box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+              transition: box-shadow 0.3s ease-in-out;
+              width: 400px;
+              max-width: 90vw;
+            }
+
+            #cita-page .form-container:hover {
+              box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+            }
+
+            #cita-page .image-container {
+              overflow: hidden;
+              border-radius: 3rem;
+              box-shadow: 0px 8px 12px rgba(240, 239, 239, 0.1);
+              width: 600px;
+              height: 600px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              animation: fadeInUp 0.6s ease-out;  Animación aplicada 
+            }
+
+            #cita-page .fixed-size-img {
+              width: 100%;
+              height: auto;
+              transform: scale(1);
+              transition: transform 0.3s ease-in-out;
+            }
+
+            #cita-page .image-container:hover .fixed-size-img {
+              transform: scale(1.05);
+            }
+
+             Otros estilos de formulario 
+            #cita-page .form-container div {
+              margin-top: 0.5rem;
+            }
+
+            #cita-page .form-container label {
+              font-weight: 600;
+              color: #fff6f6;
+              margin-bottom: 0.2rem;
+              display: inline-block;
+            }
+
+            #cita-page .form-container input {
+              background-color: #dadde0;
+              border: 1.5px solid #4b5563;
+              border-radius: 0.375rem;
+              padding: 0.5rem;
+              width: 100%;
+              font-size: 1rem;
+              color: #333;
+              transition: border-color 0.2s;
+              margin-top: 0.5rem;
+            }
+
+            #cita-page .form-container input:focus {
+              border-color: #374151;
+              outline: none;
+              box-shadow: 0 0 5px rgba(55, 65, 81, 0.2);
+            }
+
+            #cita-page .submit-btn {
+              background-color: #f2f7fb;
+              color: #34495e;
+              padding: 0.75rem 1.5rem;
+              border: none;
+              border-radius: 0.375rem;
+              cursor: pointer;
+              font-weight: 600;
+              transition: background-color 0.3s, transform 0.2s;
+              margin-top: 1.5rem;
+            }
+
+            #cita-page .submit-btn:hover {
+              background-color: #6b839b ;
+              transform: translateY(-2px);
+            }
+
+            #cita-page .submit-btn:active {
+              background-color: #2c5282;
+              transform: translateY(1px);
+            }
+
+             Estilos para íconos de redes sociales 
+
+            #cita-page .social-icons img:hover {
+              transform: rotate(360deg);
+              filter: brightness(1.2);
+            } */
+
+            
+/*- - - - - - - - - - - - - - - - - HTML LOCALIZADOR DE AGENCIAS - - - - - - - - - - - - - - - - - */
+
+            #localizador-page #brands-title {
+              text-align: center;
+              font-size: 2rem;
+              font-weight: bold;
+              color: #ffffff;
+              margin-bottom: 20px;
+            }
+
+            .centered-title {
+              text-align: center;
+              font-size: 2rem;
+              font-weight: bold;
+              color: #ffffff ; /* Color de los titulos */
+            }
+            /* Página del localizador */
+            #localizador-page {
+              background-color: #000000;
+              color: #EAECEE;
+            }
+
+            /* Contenedor principal */
+            #localizador-page .main-container {
+              margin-left: 20vw;
+              padding: 8vh 2vw;
+            }
+
+            /* Lista de agencias */
+            #localizador-page ul {
+              list-style: none;
+              padding: 0;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+              gap: 30px;
+            }
+
+            /* Elementos de la lista de agencias */
+            #localizador-page .agency-card {
+              align-items: center;
+              justify-content: center;
+              background-color: #252729;
+              padding: 30px;
+              border-radius: 20px;
+              box-shadow: 0 12px 15px rgba(0, 0, 0, 0.2);
+              border: 2px solid transparent;
+              transition: border 0.3s, box-shadow 0.3s, transform 0.3s;
+              margin-bottom: 15px;
+              animation: slideIn 0.5s ease-out;
+            }
+
+            #localizador-page .agency-card:hover {
+              border-color: #58A6FF;
+              box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+              transform: translateY(-5px);
+            }
+
+            /* Imágenes dentro de la lista */
+            #localizador-page .agency-card img {
+              width: 320px;
+              margin-right: 15px;
+              border-radius: 10px;
+              transition: transform 0.3s, filter 0.3s;
+            }
+
+            #localizador-page .agency-card img:hover {
+              transform: scale(1.1);
+              filter: brightness(1.3);
+            }
+            
+
+            /* Enlaces en los elementos de la lista */
+            #localizador-page .agency-card a {
+              text-decoration: none;
+              color: #B0BEC5;
+              font-weight: bold;
+              transition: color 0.3s ease, transform 0.3s ease;
+            }
+
+            #localizador-page .agency-card a:hover {
+              color: #58A6FF;
+              text-decoration: underline;
+            }
+
+            #localizador-page .agency-card div {
+              margin-top: 20px; /* Ajusta el valor según el espacio que desees */
+            }
+            
+            /* Iconos de redes sociales */
+  
+            #localizador-page .social-icons img:hover {
+              transform: rotate(360deg);
+              filter: brightness(1.3);
+            }
+
+            /* Tamaño de imágenes pequeñas dentro de la lista */
+            #localizador-page .small-image {
+              width: 16px !important;
+              height: auto !important;
+          }          
+
+            /* Ajuste de la sección principal */
+            #localizador-page main {
+              margin-top: 60px;
+            }
+
+            /* Animaciones de entrada */
+            @keyframes slideIn {
+              from {
+                  opacity: 0;
+                  transform: translateX(-50px);
+              }
+              to {
+                  opacity: 1;
+                  transform: translateX(0);
+              }
+            }
+
+/*- - - - - - - - - - - - - - - - - HTML LOGIN - - - - - - - - - - - - - - - - - */
+            /* Animación de entrada */
+            @keyframes slideIn {
+              from {
+                opacity: 0;
+                transform: translateX(-50px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+
+            /* Estilos de la página de login */
+            #login-page {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 100vh;
+              background-color: rgba(30, 30, 30, 0.95); /* Fondo oscuro elegante */
+              color: #F5F5F5; /* Texto en blanco grisáceo */
+            }
+            
+            #login-page #login-container {
+              background-color: rgba(50, 50, 50, 0.9); /* Fondo de la tarjeta */
+              padding: 40px;
+              border-radius: 15px;
+              box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+              max-width: 400px;
+              width: 100%;
+              text-align: center;
+              animation: slideIn 0.5s ease-in-out; /* Aplicar animación de entrada */
+              margin-top: 80px; /* Ajusta este valor según el espacio que necesites */
+          }          
+            
+            #login-page #login-container h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                color: #c7c7c7; /* Tono gris claro para el título */
+            }
+            
+            #login-page #login-container p {
+                margin-bottom: 20px;
+                font-size: 1rem;
+                color: #A0A0A0; /* Gris medio para los párrafos */
+            }
+            
+            #login-page form {
+                display: flex;
+                flex-direction: column;
+
+            }
+            
+            #login-page label {
+                margin-bottom: 15px;
+                font-size: 0.9rem;
+                color: #DADADA; /* Gris claro para etiquetas */
+            }
+            
+            #login-page input[type="text"],
+            #login-page input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                margin-top: 5px;
+                background-color: rgba(60, 60, 60, 0.9); /* Fondo oscuro para los inputs */
+                color: #F5F5F5; /* Texto claro */
+                font-size: 1rem;
+                transition: background-color 0.3s ease;
+            }
+            
+            #login-page input[type="text"]:focus,
+            #login-page input[type="password"]:focus {
+                background-color: rgba(80, 80, 80, 1); /* Fondo un poco más claro al enfocar */
+                outline: none;
+            }
+            
+            #login-page #login-button,
+            #login-page #back-button {
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                margin-top: 15px;
+            }
+            
+            #login-page #login-button {
+                background-color: #707070; /* Botón gris medio */
+                color: #FFF; /* Texto blanco */
+            }
+            
+            #login-page #login-button:hover {
+                background-color: #505050; /* Un gris más oscuro al pasar el ratón */
+            }
+            
+            #login-page #back-button {
+                background-color: transparent;
+                color: #B0B0B0; /* Gris claro */
+            }
+            
+            #login-page #back-button:hover {
+                color: #909090; /* Gris más oscuro al pasar el ratón */
+            }
+          
+            #login-page #recovery-link {
+              color: #007BFF; /* Color original */
+              text-decoration: none;
+              transition: color 0.3s ease; /* Efecto suave al cambiar de color */
+            }
+            
+            #login-page #recovery-link:hover {
+              color: #FF5733; /* Color cuando el mouse pasa por encima */
+              text-decoration: underline; /* Opcional: para resaltar el enlace */
+            }
+            
+
+
+/* - - - - - - - - - - - - - - - - - HTML OMODA, SEAT, SEV, SUZUKI, VOLKSWAGEN, ZEEKRS - - - - - - - - - - - - - - - - - */
+
+                #omoda-page {
+                  background-color: var(--background-color);
+                  color: var(--text-color);
+                  position: relative;
+                }
+                #omoda-page .hover-effect {
+                  transition: transform 0.3s ease, filter 0.3s ease;
+                }
+
+                #omoda-page .hover-effect:hover {
+                  transform: scale(1.3);
+                  filter: brightness(1.5);
+                }
+
+                #omoda-page #brands-title {
+                  text-align: center;
+                  font-size: 2rem;
+                  font-weight: bold;
+                  color: var(--text-color);
+                  margin-bottom: 30px;
+                }
+      
+                #omoda-page .centered-title {
+                  text-align: center;
+                  font-size: 2rem;
+                  font-weight: bold;
+                  color: var(--title-color);
+                }
+
+                /* Ajustes para pantallas medianas (tabletas) */
+                @media (max-width: 768px) {
+                  #omoda-page .centered-title {
+                    font-size: 1.5rem; /* Reducir el tamaño del título */
+                  }
+                }
+
+                /* Ajustes para pantallas pequeñas (celulares) */
+                @media (max-width: 480px) {
+                  #omoda-page .centered-title {
+                    font-size: 1.2rem; /* Tamaño aún más pequeño para pantallas pequeñas */
+                    margin: 0 10px; /* Añade espacio lateral para evitar que el texto se corte */
+                  }
+                }
+                      
+                #omoda-page main {
+                  margin-top: 50px; /* Ajustado para más espacio bajo el encabezado */
+                }
+
+                /* Diseño de los cuadros de las agencias */
+                #omoda-page .grid-container {
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta la cantidad de columnas automáticamente */
+                  gap: 20px; /* Espaciado entre los cuadros */
+                  padding: 20px;
+                }
+
+                #omoda-page .agency-card {
+                  background-color: var(--card-background-color);
+                  color: var(--card-text-color);
+                  padding: 20px;
+                  border-radius: 10px;
+                  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más definida */
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                  animation: fadeInUp 0.5s ease-in-out; /* Animación de entrada */
+                }
+
+                #omoda-page .agency-card:hover {
+                  transform: scale(1.05); /* Efecto de agrandamiento al pasar el ratón */
+                  box-shadow: 0 6px 12px rgba(88, 101, 242, 0.4); /* Efecto de resplandor en hover */
+                }
+
+                #omoda-page .agency-card img {
+                  width: 300px; /* Ancho fijo para las imágenes */
+                  height: 200px; /* Altura fija para las imágenes */
+                  object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+                  border-radius: 10px;
+                  margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+                  filter: contrast(1.1) saturate(1.2); /* Imagen más vibrante */
+                  margin-top: 20px; /* Ajusta este valor para el espaciado superior */
+
+                }                
+
+                #omoda-page .agency-card h3 {
+                  font-family: 'Poppins', sans-serif;
+                  font-size: 1.5rem;
+                  font-weight: bold;
+                  color: var(--card-title-color);
+                  margin-bottom: 10px;
+                }
+
+                #omoda-page .agency-card p {
+                  margin-bottom: 8px;
+                  text-align: center; /* Centrar el texto */
+                  font-family: 'Poppins', sans-serif;
+                }
+
+                #omoda-page .agency-card a {
+                  color: var(--link-color); /* Uso de la variable para el color */
+                  text-decoration: var(--link-decoration); /* Uso de la variable para la decoración */
+                  transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave */
+                }
+                
+                #omoda-page .agency-card a:hover {
+                  color: var(--link-hover-color); /* Uso de la variable para el color al pasar el cursor */
+                  text-decoration: var(--link-hover-decoration); /* Uso de la variable para la decoración al pasar el cursor */
+                }
+
+                #omoda-page :root {
+                  --link-color: #88C0D0; /* Color inicial del enlace */
+                  --link-hover-color: #E86A92; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+                }
+                
+                #omoda-page .small-image {
+                  width: 150px !important;  /* Asegura que esta regla sea aplicada */
+                  height: auto !important; /* Mantiene la proporción */
+              }              
+
+                /* Animación de entrada */
+                @keyframes fadeInUp {
+                  from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                }
+
+                /* Imagen del logotipo en la esquina superior derecha */
+                #omoda-page .top-right-image {
+                  position: absolute;
+                  top: 70px; /* Distancia desde la parte superior */
+                  right: 20px; /* Distancia desde la derecha */
+                  z-index: 10; /* Asegura que la imagen esté encima de otros elementos */
+                  margin: 10px; /* Margen de 10px alrededor de la imagen */
+                }
+
+                #omoda-page .top-right-image img {
+                  width: 150px; /* Tamaño del logotipo */
+                  height: auto; /* Mantiene proporciones */
+                  border-radius: 8px; /* Opcional: bordes ligeramente redondeados */
+                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: sombra ligera */
+                }
+
+                /* Diseño responsivo */
+                @media (max-width: 768px) {
+                  #omoda-page .top-right-image {
+                    top: 70px; /* Ajusta la distancia en pantallas más pequeñas */
+                    right: 15px;
+                  }
+
+                  #omoda-page .top-right-image img {
+                    width: 100px; /* Reduce el tamaño del logotipo */
+                  }
+                }
+
+                @media (max-width: 480px) {
+                  #omoda-page .top-right-image {
+                    top: 55px; /* Aumenta el espacio en pantallas muy pequeñas */
+                    right: 10px;
+                  }
+
+                  #omoda-page .top-right-image img {
+                    width: 80px; /* Logotipo aún más pequeño */
+                  }
+                }
+
+                /* COLORES DE OMODA | JAECOO */
+
+                #omoda-page.page-1 {
+                  --background-color: #ffffff; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #EAECEE;
+                  --title-color: #34495e;
+                  --card-background-color: #7697B0; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #EAECEE;
+                  --card-title-color: #d8dfe6;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #2D3235; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #A5B8BE; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: #2D3235;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #2D3235; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+
+                  --link-color: #2D3235; /* Color inicial del enlace */
+                  --link-hover-color: #e8f75b; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #2D3235; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #7697B0; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #FF5722; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+
+                /* COLORES HARLEY DAVIDSON */
+
+                #omoda-page.page-2 {
+                  --background-color: #ffffff; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #EAECEE;
+                  --title-color: #34495e;
+                  --card-background-color: #000000; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #EAECEE;
+                  --card-title-color: #d8dfe6;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #000000; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #FA6600; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: white;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #000000; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+
+                  --link-color: #88C0D0; /* Color inicial del enlace */
+                  --link-hover-color: #FA6600; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #000000; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #FA6600; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #88C0D0; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+
+                /* COLORES SEAT */
+
+                #omoda-page.page-3 {
+                  --background-color: #ffffff; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #EAECEE;
+                  --title-color: #34495e;
+                  --card-background-color: #85C499; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #EAECEE;
+                  --card-title-color: #ffffff;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #000000; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #000000; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: white;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #000000; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+                  
+                  --link-color: #000000; /*COLOR INICIAL DE ENLACES*/
+                  --link-hover-color: #FF5722; /*COLOR AL PASAR MOUSE ENCIMA DE ENLACES*/
+                  --link-decoration: none;
+                  --link-hover-decoration: none;
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #000000; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #85C499; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #88C0D0; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                  
+                }
+
+                /* COLORES SEV */
+
+                #omoda-page.page-4 {
+                  --background-color: #ffffff; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #000000;
+                  --title-color: #34495e;
+                  --card-background-color: #FFA323; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #000000;
+                  --card-title-color: #000000;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #000000; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #000000; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: white;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #000000; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+
+                  --link-color: #3d407a; /* Color inicial del enlace */
+                  --link-hover-color: #E86A92; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #000000; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #FDBD31; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #88C0D0; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+
+                /* COLORES CHIREY */
+
+                #omoda-page.page-5 {
+                  --background-color: #ffffff; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #EAECEE;
+                  --title-color: #34495e;
+                  --card-background-color: #000000; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #EAECEE;
+                  --card-title-color: #d8dfe6;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #000000; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #D01000; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: white;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #000000; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+
+                  --link-color: #88C0D0; /* Color inicial del enlace */
+                  --link-hover-color: #D01000; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #000000; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #D01000; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #88C0D0; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+
+                /* COLORES SUZUKI */
+
+                #omoda-page.page-6 {
+                  --background-color: #ffffff; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #EAECEE;
+                  --title-color: #34495e;
+                  --card-background-color: #001151; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #EAECEE;
+                  --card-title-color: #EAECEE;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #001151; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #E31A47; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: white;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #001151; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+
+                  --link-color: #88C0D0; /* Color inicial del enlace */
+                  --link-hover-color: #E31A47; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #001151; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #E31A47; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #88C0D0; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+
+                /* COLORES VOLKSWAGEN */
+                
+                #omoda-page.page-7 {
+                  --background-color: #FEFEFE; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #EAECEE;
+                  --title-color: #34495e;
+                  --card-background-color: #13315B; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #EAECEE;
+                  --card-title-color: #d8dfe6;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #13315B; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #00A2E0; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: white;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #13315B; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+
+                  --link-color: #00A2E0; /* Color inicial del enlace */
+                  --link-hover-color: #E86A92; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #13315B; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #00A2E0; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #FF5722; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+
+                /* COLORES ZEEKR */
+
+                #omoda-page.page-8 {
+                  --background-color: #FEFEFE; /*COLOR PARA FONDO DE LA PAGINA*/
+                  --text-color: #EAECEE;
+                  --title-color: #34495e;
+                  --card-background-color: #2E2E2E; /*COLOR PARA TARJETAS*/
+                  --card-text-color: #EAECEE;
+                  --card-title-color: #d8dfe6;
+                
+                  /* Colores generales */
+                  --header-background-gradient: #2E2E2E; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #EBE8E3; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: rgb(0, 0, 0);
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #2E2E2E; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  /* Fuentes y tamaños */
+                  --menu-link-font-size: 16px;
+                  --menu-padding: 16px;
+                  --menu-border-radius: 5px;
+
+                  --link-color: #88C0D0; /* Color inicial del enlace */
+                  --link-hover-color: #FF5722; /* Color del enlace al pasar el cursor */
+                  --link-decoration: none; /* Decoración del enlace por defecto */
+                  --link-hover-decoration: underline; /* Decoración del enlace al pasar el cursor */
+
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #2E2E2E; /* Color de fondo del pie de página */
+                  --footer-text-color: #EBE8E3; /* Color del texto en el pie de página */
+                  --footer-link-color: #EBE8E3; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #FF5722; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+                
+
+                /* COLORES MOTORNATION */
+
+                #motornation-page.page-9 {
+              
+                  /* Colores generales */
+                  --header-background-gradient: #000000; /*COLOR PARA EL ENCABEZADO*/
+                  --header-shadow-color: rgba(0, 0, 0, 0.3);
+                  --menu-background-gradient: #D1251B; /*COLOR PARA MENU LATERAL*/
+                  --menu-link-color: white;
+                  --menu-link-active-background: rgba(72, 85, 99, 0.9);
+                  --menu-link-hover-background: rgba(255, 255, 255, 0.1); /* Hover para enlaces */
+                
+                  /* Botón de menú hamburguesa */
+                  --hamburger-background-color: #000000; /*COLOR PARA BOTON HAMBURGUESA*/
+                  --hamburger-size: 35px;
+                
+                  
+                  /* Estilos para pie de pagina */
+                  --footer-bg-color: #000000; /* Color de fondo del pie de página */
+                  --footer-text-color: #ffffff; /* Color del texto en el pie de página */
+                  --footer-link-color: #D1251B; /* Color de los enlaces normales */
+                  --footer-link-hover-color: #88C0D0; /* Color de los enlaces al pasar el cursor */
+                  --footer-hr-color: #888; /* Color de las líneas <hr> en el pie de página */
+                }
+
+        .horarios-departamento p {
+          white-space: pre-line; /* Respetar los saltos de línea en el texto */
+          margin: 0;
+          font-size: 14px; /* Ajustar el tamaño del texto si es necesario */
+          line-height: 1.5; /* Espaciado entre líneas */
+       }
+
+       
+              

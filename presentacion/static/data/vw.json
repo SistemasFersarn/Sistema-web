@@ -1,0 +1,31 @@
+{
+    "vw_info": [
+        {
+            "lugar": "Ixtapaluca",
+            "logo": "images/LOGO_SUCURSAL/logo_vw_1.png",
+            "imagen": "images/vw_1.png",
+            "concecionario": "Concesionario autorizado Volkswagen",
+            "direccion": "Carretera Federal Mexico-Cuautla No 301, Col. Santa Bárbara Ixtapaluca, Estado de Mexico, C.P. 56538.",
+            "enlace": "https://www.vw-fersan.com.mx",
+            "telefono": "55-15-61-20-70"
+        },
+        {
+            "lugar": "Iztacalco",
+            "logo": "images/LOGO_SUCURSAL/logo_vw_2.png",
+            "imagen": "images/vw_2.png",
+            "concecionario": "Concesionario autorizado Volkswagen",
+            "direccion": "Av. Pdte. Plutarco Elías Calles 588, Barrio de Zapotla, Iztacalco, 08610 Ciudad de México, CDMX",
+            "enlace": "https://vw-iztacalco.com.mx/",
+            "telefono": "55-93-87-40-00"
+        },
+        {
+            "lugar": "Chalco",
+            "logo": "images/LOGO_SUCURSAL/logo_vw_3.png",
+            "imagen": "images/vw_3.png",
+            "concecionario": "Concesionario autorizado Volkswagen",
+            "direccion": "Zona Industrial, Chalco de Diaz Covarrubias Estado de Mexico, C.P. 56600.",
+            "enlace": "https://vw-chalco.com.mx/",
+            "telefono": "55-92-66-72-50"
+        }
+    ]
+}

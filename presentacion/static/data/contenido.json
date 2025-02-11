@@ -1,0 +1,14 @@
+{
+    "tarjetas": [
+        {
+            "titulo": "Tarjeta 1",
+            "descripcion": "En Grupo Fersan Motors, ofrecemos servicios de alta calidad y un compromiso inigualable con nuestros clientes.",
+            "imagen": "images/INFORMACION_FERSAN/tarjeta_1.png"
+        },
+        {
+            "titulo": "Tarjeta 2",
+            "descripcion": "Nos destacamos por nuestra innovación y tecnología de punta en cada uno de nuestros servicios y productos.",
+            "imagen": "images/INFORMACION_FERSAN/tarjeta_2.png"
+        }
+    ]
+}

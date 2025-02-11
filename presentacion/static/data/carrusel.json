@@ -1,0 +1,47 @@
+{
+    "volkswagen": {
+        "categoria": "Volkswagen",
+        "image": "/static/images/carrusel_agencia_1.png",
+        "text": "Volkswagen"
+    },
+    "suzuki": {
+        "categoria": "Suzuki",
+        "image": "/static/images/carrusel_agencia_2.png",
+        "text": "Suzuki"
+    },
+    "harley": {
+        "categoria": "Harley",
+        "image": "/static/images/carrusel_agencia_3.png",
+        "text": "Harley Davidson es una icónica marca estadounidense de motocicletas de gran cilindrada."
+    },
+    "seat": {
+        "categoria": "Seat",
+        "image": "/static/images/carrusel_agencia_4.png",
+        "text": "SEAT es una marca española de automóviles conocida por su diseño y tecnología avanzados."
+    },
+    "omoda": {
+        "categoria": "Omoda",
+        "image": "/static/images/carrusel_agencia_5.png",
+        "text": "Omoda es una marca innovadora en vehículos eléctricos, conocida por su enfoque en diseño y sostenibilidad."
+    },
+    "sev": {
+        "categoria": "Sev",
+        "image": "/static/images/carrusel_agencia_6.png",
+        "text": "SEV es una marca emergente que se enfoca en la movilidad eléctrica para el futuro."
+    },
+    "zeekr": {
+        "categoria": "Zeekr",
+        "image": "/static/images/carrusel_agencia_7.png",
+        "text": "Zeekr es conocida por sus vehículos eléctricos de alta gama y tecnología avanzada."
+    },
+    "chirey": {
+        "categoria": "Chirey",
+        "image": "/static/images/carrusel_agencia_8.png",
+        "text": "Chirey se enfoca en ofrecer vehículos confiables y accesibles, con énfasis en tecnología."
+    },
+    "motornation": {
+        "categoria": "Motornation",
+        "image": "/static/images/carrusel_agencia_9.png",
+        "text": "MotorNation es una empresa con enfoque en soluciones de movilidad globales y modernas."
+    }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar JSON - Grupo Fersan</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/FERSAN_LOGO_PAGINA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles_editar.css' %}">
+</head>
+<body id="editar">
+
+    {% include 'components/encabezado_editar.html' %}
+
+    <main class="ml-64 p-8">  
+
+    <div class="navigation">
+        <a href="{% url 'inicio_usuario' %}" class="back-button">>Regresar</a>
+    </div>  
+
+
+    <section class="logo-section">
+        <h2>Cambiar Logo</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="change_logo">
+
+            <label for="nuevo_logo" class="form-label">Nuevo Logo:</label>
+            <input type="file" id="nuevo_logo" name="nuevo_logo" accept="image/*" class="form-input">
+
+            <button type="submit" class="form-button">Actualizar Logo</button>
+        </form>
+    </section>
+
+    <!-- Formulario para editar "contenido" -->
+    <section class="content-section">
+        <h2>Editar Contenido</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="edit_content">
+
+            {% if data.contenido %}
+                {% for item in data.contenido %}
+                    <div class="card-section">
+                        <h4 class="card-title">Sección {{ forloop.counter }}</h4>
+
+                        <label for="subtitulo_{{ forloop.counter0 }}" class="form-label">Subtítulo:</label>
+                        <input type="text" id="subtitulo_{{ forloop.counter0 }}" name="subtitulo_{{ forloop.counter0 }}" value="{{ item.subtitulo }}" class="form-input">
+
+                        <label for="descripcion_{{ forloop.counter0 }}" class="form-label">Descripción:</label>
+                        <textarea id="descripcion_{{ forloop.counter0 }}" name="descripcion_{{ forloop.counter0 }}" class="form-input">{{ item.descripcion }}</textarea>
+
+                        <!-- Botón para eliminar esta sección -->
+                        <button type="submit" class="form-button delete-button" name="action" value="delete_content_{{ forloop.counter0 }}">
+                            Eliminar Sección
+                        </button>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No hay contenido disponible.</p>
+            {% endif %}
+
+            <!-- Botón para guardar cambios en el contenido -->
+            <button type="submit" class="form-button save-button">Guardar Cambios en Contenido</button>
+        </form>
+
+        <!-- Formulario para agregar una nueva sección -->
+        <h3>Agregar Nueva Sección</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add_content">
+
+            <label for="nuevo_subtitulo" class="form-label">Subtítulo:</label>
+            <input type="text" id="nuevo_subtitulo" name="nuevo_subtitulo" placeholder="Nuevo Subtítulo" class="form-input">
+
+            <label for="nueva_descripcion" class="form-label">Descripción:</label>
+            <textarea id="nueva_descripcion" name="nueva_descripcion" placeholder="Nueva Descripción" class="form-input"></textarea>
+
+            <button type="submit" class="form-button">Agregar Sección</button>
+        </form>
+    </section>
+
+    <!-- Formulario para editar "servicios" -->
+    <section class="services-section">
+        <h2>Editar Servicios</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="edit_service">
+
+            {% if data.servicios %}
+                {% for servicio in data.servicios %}
+                    <div class="card-section">
+                        <h4 class="card-title">Servicio {{ forloop.counter }}</h4>
+
+                        <label for="nombre_servicio_{{ forloop.counter0 }}" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre_servicio_{{ forloop.counter0 }}" name="nombre_servicio_{{ forloop.counter0 }}" value="{{ servicio.nombre }}" class="form-input">
+
+                        <label for="descripcion_servicio_{{ forloop.counter0 }}" class="form-label">Descripción:</label>
+                        <textarea id="descripcion_servicio_{{ forloop.counter0 }}" name="descripcion_servicio_{{ forloop.counter0 }}" class="form-input">{{ servicio.descripcion }}</textarea>
+
+                        <!-- Botón para eliminar este servicio -->
+                        <button type="submit" class="form-button delete-button" name="action" value="delete_service_{{ forloop.counter0 }}">
+                            Eliminar Servicio
+                        </button>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No hay servicios disponibles.</p>
+            {% endif %}
+
+            <!-- Botón para guardar cambios en los servicios -->
+            <button type="submit" class="form-button save-button">Guardar Cambios en Servicios</button>
+        </form>
+
+        <!-- Formulario para agregar un nuevo servicio -->
+        <h3>Agregar Nuevo Servicio</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add_service">
+
+            <label for="nuevo_nombre_servicio" class="form-label">Nombre del Servicio:</label>
+            <input type="text" id="nuevo_nombre_servicio" name="nuevo_nombre_servicio" placeholder="Nuevo Nombre" class="form-input">
+
+            <label for="nueva_descripcion_servicio" class="form-label">Descripción:</label>
+            <textarea id="nueva_descripcion_servicio" name="nueva_descripcion_servicio" placeholder="Nueva Descripción" class="form-input"></textarea>
+
+            <button type="submit" class="form-button">Agregar Servicio</button>
+        </form>
+    </section>
+
+    <!-- Mensajes -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    </main>
+    
+
+</body>
+</html>

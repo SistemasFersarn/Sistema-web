@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de Grupo Fersan</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/HOLA.png' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="acerca-page" class="bg-gray-100">
+
+  {% include 'components/menu_hamburguesa.html'%}
+
+  <!-- Contenido principal -->
+<main class="ml-64 p-8">
+  <!-- Imagen del logotipo posicionada -->
+  <div class="top-right-logo">
+      <img class="small-image" src="{% static data.logo %}" alt="LOGO_SUCURSAL">
+  </div>
+  <h2 class="centered-title">Acerca de Nosotros</h2>
+
+  <div class="bg-gray-200 p-8 rounded-md">
+      {% for item in data.contenido %}
+      <div class="h3-box">
+          <h3 class="text-2xl font-bold mb-4">{{ item.subtitulo }}</h3>
+          <p>{{ item.descripcion }}</p>
+      </div>
+      {% endfor %}
+
+      <div class="h3-box">
+          <h3 class="text-2xl font-bold mb-4">Nuestros Servicios</h3>
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+              {% for servicio in data.servicios %}
+              <li class="bg-gray-600 p-4 border-2 border-blue-500 text-center rounded-lg">
+                  <h4 class="font-bold text-lg text-gray-200">{{ servicio.nombre }}</h4>
+                  <p>{{ servicio.descripcion }}</p>
+              </li>
+              {% endfor %}
+          </ul>
+      </div>
+  </div>
+
+  {% include 'components/pie_de_pagina.html'%}
+</main>
+
+
+</body>
+</html>

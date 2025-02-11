@@ -1,0 +1,90 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar JSON - Grupo Fersan</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/FERSAN_LOGO_PAGINA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles_editar.css' %}">
+</head>
+<body id="editar">
+
+  {% include 'components/encabezado_editar.html' %}
+
+  <main class="ml-64 p-8">
+
+    <div class="navigation">
+        <a href="{% url 'inicio_usuario' %}" class="back-button">>Regresar</a>
+    </div>
+
+    <h1>Editar Direcciones</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="edit"> <!-- Acción de editar -->
+
+        {% if ubicacion.pie_ubicacion %}
+            {% for ubi in ubicacion.pie_ubicacion %}
+                <div class="card-section">
+                    <h4 class="card-title">Horarios y dirección {{ forloop.counter }}</h4>
+
+                    <label for="encabezado_{{ forloop.counter0 }}" class="form-label">Ubicación:</label>
+                    <input type="text" id="encabezado_{{ forloop.counter0 }}" name="encabezado_{{ forloop.counter0 }}" value="{{ ubi.encabezado }}" class="form-input">
+
+                    <label for="direccion_{{ forloop.counter0 }}" class="form-label">Dirección:</label>
+                    <input type="text" id="direccion_{{ forloop.counter0 }}" name="direccion_{{ forloop.counter0 }}" value="{{ ubi.direccion }}" class="form-input">
+
+                    <label for="telefono_{{ forloop.counter0 }}" class="form-label">Teléfono:</label>
+                    <input type="text" id="telefono_{{ forloop.counter0 }}" name="telefono_{{ forloop.counter0 }}" value="{{ ubi.telefono }}" class="form-input">
+
+                    <!-- Botón para eliminar esta direccion -->
+                    <button type="submit" class="form-button delete-button" name="action" value="delete_{{ forloop.counter0 }}">
+                        Eliminar Direccion
+                    </button>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay información disponible.</p>
+        {% endif %}
+
+        <!-- Botón para guardar cambios en las tarjetas -->
+        <button type="submit" class="form-button save-button">Guardar Cambios</button>
+    </form>
+
+    <!-- Formulario para agregar una nueva tarjeta -->
+    <section class="add-section">
+        <h3>Agregar Nueva Ubicación</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add">
+
+            <label for="nuevo_encabezado" class="form-label">Encabezado:</label>
+            <input type="text" id="nuevo_encabezado" name="nuevo_encabezado" placeholder="Nueva Encabezado" class="form-input">
+
+            <label for="nueva_direccion" class="form-label">Dirección:</label>
+            <input type="text" id="nueva_direccion" name="nueva_direccion" placeholder="Nuevo Dirección" class="form-input">
+
+            <label for="nuevo_telefono" class="form-label">Telefono:</label>
+            <input type="text" id="nuevo_telefono" name="nuevo_telefono" placeholder="Nueva Telefono" class="form-input">
+
+            <button type="submit" class="form-button">Agregar Ubicación</button>
+        </form>
+    </section>
+
+    <!-- Mensajes -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    </main>
+
+</body>
+</html>

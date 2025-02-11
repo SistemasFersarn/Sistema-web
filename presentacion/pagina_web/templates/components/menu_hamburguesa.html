@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Fersan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ANIMACION DE CARGA DE PAGINA -->
+<div id="loading-screen">
+  <div class="brand-logo-container">
+    <img src="{% static 'images/LOGO_PARA_CARGA/fersan_carga.png' %}" alt="Logotipo de la Marca">
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const loadingScreen = document.getElementById("loading-screen");
+  setTimeout(() => {
+    loadingScreen.classList.add("hidden");
+  }, 1000);
+});
+</script>
+
+<!-- Menú hamburguesa -->
+<input type="checkbox" id="menu-toggle" style="display: none;">
+<label for="menu-toggle" class="hamburger-menu">
+  <div></div>
+  <div></div>
+  <div></div>
+</label>
+
+<header>
+  <div class="logo-container">
+    <img src="{% static 'images/fersan_blanco.png' %}" alt="Logo">
+    <a href="{% url 'home' %}"><h1>Grupo Fersan</h1></a>
+  </div>
+
+  <div class="session-container">
+    {% if user.is_authenticated %}
+    <a href="{% url 'inicio_usuario' %}" class="session-status">Interfaz de Edición</a>
+
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Cerrar sesión</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}" class="login-btn">Iniciar sesión</a>
+    {% endif %}
+  </div>
+
+</header>
+
+<aside>
+  <nav>
+    <a href="{% url 'marcas' %}" class="{% if request.path == '/marcas/' %}active{% endif %}"><i class="fas fa-car"></i> Marcas</a>
+    <a href="{% url 'localizador_agencias' %}" class="{% if request.path == '/localizador_agencias/' %}active{% endif %}"><i class="fas fa-map-marker-alt"></i> Localizador de Agencias</a>
+    <a href="{% url 'atencion_al_cliente' %}" class="{% if request.path == '/atencion_al_cliente/' %}active{% endif %}"><i class="fas fa-headset"></i> Atención al cliente</a>
+    <a href="{% url 'acerca_empresa' %}" class="{% if request.path == '/acerca_empresa/' %}active{% endif %}"><i class="fas fa-info-circle"></i> Acerca de la empresa</a>
+  </nav>
+
+</aside>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+    "icon_fon": "images/icon_tel_global.png",
+    "icon_email": "images/icon_email_global.png",
+    "notas": {
+        "Fersan Motors Volkswagen": [
+            {
+                "agencia": "Ixtapaluca",
+                "telefono": "5550681903",
+                "correo": "pendiente@gmail.com"
+            },
+            {
+                "agencia": "Chalco",
+                "telefono": "5592668250",
+                "correo": "pendiente@gmail.com"
+            },
+            {
+                "agencia": "Iztacalco",
+                "telefono": "5530594441",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "Chaixstu Motors Suzuki": [
+            {
+                "agencia": "Ixtapaluca",
+                "telefono": "5515612300",
+                "correo": "pendiente@gmail.com"
+            },
+            {
+                "agencia": "Chalco",
+                "telefono": "5559827213",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "Fersan Bikes Harley Davidson": [
+            {
+                "agencia": "Puebla Angelopolis",
+                "telefono": "2229824850",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "Navarra Motors Seat": [
+            {
+                "agencia": "Ixtapaluca",
+                "telefono": "5527342386",
+                "correo": "pendiente@gmail.com"
+            },
+            {
+                "agencia": "Chalco",
+                "telefono": "5563503511",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "Trendy Motors Omoda | Jaecoo": [
+            {
+                "agencia": "Ixtapaluca",
+                "telefono": "5595614000",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "IF Motors SEV": [
+            {
+                "agencia": "Puebla los fuertes",
+                "telefono": "2222827086",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "IF Motors Zeekr": [
+            {
+                "agencia": "Puebla Angelopolis",
+                "telefono": "2222827086",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "Chirey": [
+            {
+                "agencia": "Ixtapaluca",
+                "telefono": "5560909964",
+                "correo": "pendiente@gmail.com"
+            }
+        ],
+        "Fercar Motors Motornation": [
+            {
+                "agencia": "Ixtapaluca",
+                "telefono": "5597147450",
+                "correo": "pendiente@gmail.com"
+            }
+        ]
+    }
+}

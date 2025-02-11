@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cita de Servicio - Grupo Fersan</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/HOLA.png' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="cita-page" class="bg-gray-100"> 
+
+
+  {% include 'components/menu_hamburguesa.html'%}
+
+  
+  <main class="ml-64 p-8">
+    <div class="flex-1 min-w-[600px]">
+      <h2 class="centered-title">Agendar Cita de Servicio</h2>
+      
+      <div class="form-container">
+        <form method="POST" action="{% url 'agendar_cita' %}" class="space-y-4">
+          {% csrf_token %}
+
+          <div>
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" required>
+          </div>
+
+          <div>
+            <label for="agencia">Agencia:</label>
+            <input type="text" id="agencia" name="agencia" required>
+          </div>
+
+          <div>
+            <label for="ano">Año:</label>
+            <input type="number" id="ano" name="ano" required min="1900" max="{{ current_year }}">
+          </div>
+
+          <div>
+            <label for="version">Versión:</label>
+            <input type="text" id="version" name="version" required>
+          </div>
+
+          <div>
+            <label for="kilometraje">Kilometraje:</label>
+            <input type="number" id="kilometraje" name="kilometraje" required>
+          </div>
+
+          <div>
+            <label for="numero_serie">Número de Serie:</label>
+            <input type="text" id="numero_serie" name="numero_serie" required>
+          </div>
+
+          <div>
+            <label for="placas">Placas:</label>
+            <input type="text" id="placas" name="placas" required>
+          </div>
+
+          <center>
+            <button type="submit" class="submit-btn">Agendar Cita</button>
+          </center>
+        </form>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="{% static 'images/mecanico.png' %}" alt="Mecánico" class="fixed-size-img">
+    </div>
+  </main>
+    {% include 'components/pie_de_pagina.html'%}
+</body>
+</html> -->

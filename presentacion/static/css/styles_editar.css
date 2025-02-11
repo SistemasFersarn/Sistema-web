@@ -1,0 +1,474 @@
+
+/*- - - - - - - - - - - - - - - - - - ESTILO GENERAL PARA TODOS LOS HTML - - - - - - - - - - - - - - - - - -*/
+
+        /* ANIMACION PARA CARGAR PAGINA */
+        
+        /* Estilo para la pantalla de carga */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #333; /* Fondo oscuro para mayor contraste */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.5s ease-out; /* Animación para un desvanecimiento suave */
+          }
+  
+          /* Animación de desvanecimiento para la pantalla de carga */
+          @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+  
+          /* Estilo para el carro */
+          .car {
+            font-size: 4rem;
+            animation: drive 2s ease-in-out infinite;
+            color: #E2E8F0; /* Color claro para resaltar el carro */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la legibilidad */
+          }
+  
+          /* Animación de movimiento */
+          @keyframes drive {
+            0% { transform: translateX(-100px); }
+            50% { transform: translateX(50px); }
+            100% { transform: translateX(-100px); }
+          }
+  
+          /* Ajusta el tamaño de la imagen */
+          .car img {
+            width: 80px; /* Ajusta el tamaño de la imagen */
+            height: auto;
+          }
+  
+          /* Aplicar la fuente Lato */
+          body, header, aside, main, h1, h2, h3, p, a {
+            font-family: 'Lato', sans-serif;
+          }
+  
+          /* Encabezado */
+          header {
+            background: linear-gradient(135deg, #323639, #1F2427);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1300;
+            height: 60px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para el encabezado */
+          }
+  
+          /* Estilo del logo */
+          header .logo-container {
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+          }
+  
+          header .logo-container img {
+            height: 40px;
+            opacity: 0.9;
+            margin-right: 16px;
+          }
+  
+          /* Estilo para el texto dentro del enlace */
+          header .logo-container a h1 {
+            color: #E2E8F0;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            white-space: nowrap;
+          }
+  
+          header .logo-container a {
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+          }
+  
+          /* Color al pasar el ratón */
+          header .logo-container a:hover h1 {
+            color: #F56565;
+          }
+  
+          /* Enlaces dentro del encabezado */
+          header a {
+            color: #E2E8F0;
+            text-decoration: none;
+            margin-left: 16px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+          }
+  
+          header a:hover {
+            text-decoration: underline;
+            color: #F56565;
+          }
+  
+          /* Estilo para el input de búsqueda */
+          header input[type="text"] {
+            border-radius: 4px;
+            padding: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+          }
+  
+  
+          /* Ajuste para pantallas pequeñas */
+          @media (max-width: 768px) {
+            header {
+              padding: 0 10px; /* Reduce el espacio lateral */
+            }
+  
+            header h1 {
+              font-size: 16px; /* Reduce tamaño del título */
+            }
+  
+            /* Logotipo de la marca */
+            header .logo-container {
+              margin-left: 40px; /* Aleja el logotipo del menú hamburguesa */
+            }
+  
+            header img {
+              height: 35px; /* Reduce el tamaño del logotipo */
+            }
+  
+            header input[type="text"] {
+              font-size: 12px;
+              padding: 4px;
+            }
+  
+            header a {
+              font-size: 12px; /* Ajuste para enlaces */
+              margin-left: 10px;
+            }
+  
+            .hamburger-menu {
+              position: absolute; /* Posición fija con relación al encabezado */
+              top: 10px; /* Ajuste para centrarse verticalmente */
+              left: 10px; /* Alejado del borde izquierdo */
+              width: 35px;
+              height: 35px;
+            }
+  
+            .hamburger-menu div {
+              width: 18px;
+              height: 2.5px;
+            }
+          }
+  
+          /* Menú lateral */
+          aside {
+            width: 250px;
+            background: linear-gradient(135deg, rgba(50, 54, 57, 0.95), rgba(30, 34, 37, 0.95));
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 90px 16px 16px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(0);
+          }
+  
+          /* Estilo para los enlaces del menú lateral */
+          aside nav a {
+            display: block;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+          }
+  
+          /* Hover para enlaces */
+          aside nav a:hover {
+            background-color: #4A5568;
+          }
+  
+  
+          .social-icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+          }
+  
+          .social-icons img {
+            width: 30px;
+            height: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+          }
+  
+          .social-icons img:hover {
+            transform: rotate(360deg);
+            filter: brightness(1.2);
+          }
+  
+          /* Ajustes para pantallas pequeñas */
+          @media (max-width: 768px) {
+            .social-icons {
+              margin-bottom: 70px; /* Reduce el margen inferior */
+            }
+  
+            .social-icons img {
+              width: 25px; /* Reduce el tamaño de los iconos */
+              margin: 10px; /* Ajusta el espacio entre los iconos para pantallas pequeñas */
+            }
+          }
+  
+          /* Checkbox para controlar el menú */
+          #menu-toggle:checked ~ aside {
+            transform: translateX(-250px);
+          }
+  
+          #menu-toggle:checked ~ main {
+            margin-left: 0;
+          }
+  
+          /* Botón de menú hamburguesa */
+          .hamburger-menu {
+            position: fixed; /* Fijarlo en la parte superior */
+            top: 10px; /* Ajusta para centrarlo o dejarlo en la parte superior */
+            left: 10px; /* Aleja del borde izquierdo */
+            z-index: 1350;
+            cursor: pointer;
+            background-color: #323639;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, filter 0.3s ease;
+          }
+  
+          .hamburger-menu:hover {
+            filter: brightness(1.2);
+            transform: scale(1.1) rotate(5deg);
+          }
+  
+          /* Líneas del icono de la hamburguesa */
+          .hamburger-menu div {
+            width: 18px;
+            height: 2.5px;
+            background-color: #E2E8F0;
+            margin: 2px 0;
+            border-radius: 1px;
+          }
+  
+          /* Contenedor principal */
+          main {
+            margin-left: 270px;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: margin-left 0.3s ease-in-out;
+            margin-top: 60px;
+          }
+  
+          /* Animaciones de entrada */
+          @keyframes slideIn {
+            from {
+              opacity: 0;
+              transform: translateX(-50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+  
+          .agency-card {
+            animation: slideIn 0.5s ease-out;
+          }
+  
+          /* Ajustes del menú lateral en pantallas pequeñas */
+          @media (max-width: 768px) {
+            header h1 {
+              font-size: 20px;
+            }
+  
+            header input[type="text"] {
+              font-size: 12px;
+            }
+  
+            .hamburger-menu {
+              width: 35px;
+              height: 35px;
+              top: 10px;
+              left: 10px;
+            }
+  
+            .hamburger-menu div {
+              width: 18px;
+              height: 2.5px;
+            }
+  
+            aside {
+              position: fixed;
+              top: 0;
+              width: 100vw;
+              height: 100vh;
+              transform: translateX(-100%);
+              opacity: 0;
+              transition: transform 0.3s ease, opacity 0.3s ease;
+              z-index: 1100;
+            }
+  
+            #menu-toggle:checked ~ aside {
+              transform: translateX(0);
+              opacity: 1;
+            }
+  
+            main {
+              margin-left: 0;
+              width: 100%;
+              padding: 20px;
+            }
+  
+            #menu-toggle:checked ~ main {
+              display: none;
+            }
+          }
+
+/* - - - - - - - - - - - - - - - - - ESTILO PARA PAGINA DE EDITAR - - - - - - - - - - - - - - - - - - - - - - */ 
+
+/* Contenedor principal */
+#editar .form-container {
+    margin-left: 64px;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: "Arial", sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de cada tarjeta */
+#editar .card-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos */
+#editar .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+/* Etiquetas de formulario */
+#editar .form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Campos de entrada */
+#editar .form-input, .form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    color: #333;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#editar .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #666;
+    background-color: #fff;
+}
+
+/* Textarea específico */
+#editar .form-textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Botón de enviar */
+#editar .form-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#editar .form-button:hover {
+    background-color: #555;
+}
+
+/* Efectos adicionales */
+#editar .card-section:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#editar .messages {
+    position: fixed; /* Siempre visible */
+    top: 20px; /* Separación del borde superior */
+    left: 50%; /* Centramos horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centrar correctamente */
+    z-index: 9999; /* Para que quede en primer plano */
+    max-width: 90%; /* Evitar que ocupe demasiado espacio */
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera para destacarlo */
+}
+
+#editar .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Mensaje de éxito */
+#editar .message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Mensaje de error */
+#editar .message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

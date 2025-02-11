@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Fersan</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/HOLA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles_editar.css' %}">
+</head>
+<body id="editar">
+
+  {% include 'components/encabezado_editar.html' %}
+
+  <main class="ml-64 p-8">  
+
+    <div class="navigation">
+        <a href="{% url 'inicio_usuario' %}" class="back-button">>Regresar</a>
+    </div>
+
+    <h1>Editar Notas</h1>
+
+    <!-- Mensajes de éxito o error -->
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+      <div class="message {{ message.tags }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="edit"> <!-- Acción de editar --> 
+        
+        {% for nota in notes.notas %}
+            <div class="card-section">
+                <h4 class="card-title">Nota {{ forloop.counter }}</h4>
+
+                <!-- Campo Imagen -->
+                <label for="imagen_{{ forloop.counter0 }}" class="form-label">Imagen:</label>
+                <input type="file" id="imagen_{{ forloop.counter0 }}" name="imagen_{{ forloop.counter0 }}" class="form-input">
+                    
+                <!-- Campo Título -->
+                <label for="titulo_{{ forloop.counter0 }}" class="form-label">Título:</label>
+                <input type="text" id="titulo_{{ forloop.counter0 }}" name="titulo_{{ forloop.counter0 }}" value="{{ nota.titulo }}" class="form-input">
+                    
+                <!-- Campo Descripción -->
+                <label for="descripcion_{{ forloop.counter0 }}" class="form-label">Descripción:</label>
+                <textarea id="descripcion_{{ forloop.counter0 }}" name="descripcion_{{ forloop.counter0 }}" class="form-textarea">{{ nota.descripcion }}</textarea>
+                    
+                <!-- Campo Enlace -->
+                <label for="enlace_{{ forloop.counter0 }}" class="form-label">Enlace:</label>
+                <input type="text" id="enlace_{{ forloop.counter0 }}" name="enlace_{{ forloop.counter0 }}" value="{{ nota.enlace }}" class="form-input">
+            
+                <!-- Botón para eliminar tarjeta -->
+                <button type="submit" class="form-button delete-button" name="action" value="delete_{{ forloop.counter0 }}">
+                    Eliminar Tarjeta
+                </button>
+            </div>
+            {% endfor %}
+
+            <!-- Botón para guardar cambios en tarjetas existentes -->
+            <button type="submit" class="form-button save-button">Guardar Cambios</button>
+        </form>
+
+     
+        <!-- Formulario para agregar una nueva tarjeta -->
+        <section class="add-section">
+            <h2>Agregar Nueva Nota</h2>
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="add"> <!-- Acción de agregar -->
+            
+            <!-- Campo para subir imagen -->
+            <label for="nueva_imagen" class="form-label">Imagen:</label>
+            <input type="file" id="nueva_imagen" name="nueva_imagen" class="form-input">
+
+
+            <!-- Campo para el título de la nueva tarjeta -->
+            <label for="nuevo_titulo" class="form-label">Título:</label>
+            <input type="text" id="nuevo_titulo" name="nuevo_titulo" placeholder="Título de la nueva tarjeta" class="form-input">
+            
+
+            <!-- Campo para la descripción de la nueva tarjeta -->
+            <label for="nueva_descripcion" class="form-label">Descripción:</label>
+            <textarea id="nueva_descripcion" name="nueva_descripcion" placeholder="Descripción de la nueva tarjeta" class="form-textarea"></textarea>
+            
+
+            <!-- Campo para el nuevo enlace -->
+            <label for="nuevo_enlace" class="form-label">Enlace:</label>
+            <input type="text" id="nuevo_enlace" name="nuevo_enlace" placeholder="Nuevo Enlace" class="form-input">
+            
+            
+            <!-- Botón para agregar la nueva tarjeta -->
+            <button type="submit" class="form-button add-button">Agregar Tarjeta</button>
+            </form>
+        </section>
+  </main>
+
+
+</body>
+</html>

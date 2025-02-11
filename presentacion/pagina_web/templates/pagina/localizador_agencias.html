@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Localizador de Agencias</title>
+  {% load static %}  <!-- Cargar el módulo de etiquetas estáticas -->
+  <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/HOLA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body id="localizador-page" > <!-- Añadimos un ID único para esta página -->
+
+    {% include 'components/menu_hamburguesa.html'%}
+
+
+    <main class="ml-64 p-8">
+        {% for categoria, agencias in grouped_agencias.items %}
+        <section>
+            <h2 class="centered-title">{{ categoria|title }}</h2>
+            <ul>
+                {% for agencia in agencias %}
+                <li class="agency-card">
+                    <center>
+                        <div>
+                            <h2>{{ agencia.nombre }}</h2>
+                        </div>
+                        <div>
+                            <img src="{% static agencia.imagen %}" alt="{{ agencia.nombre }}">
+                        </div>
+                        <div>
+                            <p>{{ agencia.contacto|linebreaksbr }}</p>
+                        </div>
+                        {% if agencia.enlace %}
+                        <a href="{{ agencia.enlace }}" target="_blank">
+                            <img src="{% static 'images/maps.png' %}" alt="Google Maps" class="small-image hover-effect">
+                        </a>
+                        {% endif %}
+                    </center>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endfor %}
+
+        {% include 'components/pie_de_pagina.html' %}
+    </main>
+
+
+</body>
+</html>

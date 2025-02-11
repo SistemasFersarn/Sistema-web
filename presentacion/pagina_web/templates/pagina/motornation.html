@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fercar Motors</title>
+  {% load static %}
+  <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/FERCAR_LOGO_PAGINA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body id="motornation-page" class="page-9 bg-gray-100">
+
+  {% include 'components/menu_hamburguesa.html'%}
+
+    <!-- Imagen superior derecha -->
+<div class="top-right-image">
+  <img src="{% static 'images/razon_social/FERCAR.png' %}" alt="Imagen superior derecha">
+</div>
+
+    <main class="p-8">
+      <!-- Sección de Marcas -->
+      <section id="brands-section" class="brands-section">
+        <h2 id="brands-title" class="centered-title">Marcas</h2>
+        <div class="brands-grid">
+          <div class="agency-card">
+            <img src="{% static 'images/marcas_mn/jmc.png' %}" alt="JMC" class="hover-effect">
+          </div>
+          <div class="agency-card">
+            <img src="{% static 'images/marcas_mn/Red-logo.png' %}" alt="Red" class="hover-effect">
+          </div>
+          <div class="agency-card">
+            <img src="{% static 'images/marcas_mn/dfsk_logo.png' %}" alt="DFSK" class="hover-effect">
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenido principal (Motornation) -->
+      <section id="motornation-content" class="content-section mt-8">
+        <h2 class="centered-title">Motornation</h2>
+        <div class="content-grid">
+          <div class="agency-card">
+            {% for motor_info in motor.motor_info %}
+            <div class="agency-card">
+              <h3><center>{{ motor_info.lugar }}</center></h3>
+              <img class="small-image" src="{% static motor_info.logo %}" alt="LOGO_SUCURSAL">
+              <img src="{% static motor_info.imagen %}" alt="Agencia {{ motor_info.lugar }}">
+              <p>{{ motor_info.concecionario }}</p>
+              <p>{{ motor_info.direccion }}</p>
+              <p><a href="{{ motor_info.enlace }}" target="_blank">{{ motor_info.enlace }}</a></p>
+              <p>Teléfono de contacto: <a href="tel:{{ motor_info.telefono }}">{{ motor_info.telefono }}</a></p>
+
+              <!-- Redes sociales -->
+          <div class="social-icons" style="margin-top: 10px; display: flex; gap: 15px; justify-content: center;">
+            <a href="{{ motor_info.facebook }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="{{ motor_info.instagram }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/{{ motor_info.whatsapp }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="{{ motor_info.linkedin }}" target="_blank" style="font-size: 28px;">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        </div>
+      </section>
+
+      {% include 'components/pie_de_pagina.html'%}
+
+    </main>
+
+</body>
+</html>

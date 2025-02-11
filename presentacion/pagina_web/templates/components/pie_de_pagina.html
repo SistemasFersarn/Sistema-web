@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<footer id="footer">
+
+    <div class="fooster-container" id="horarios-container">
+        <!-- El contenido será generado dinámicamente -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/static/data/horarios.json')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('horarios-container');
+                    const urlActual = window.location.pathname; // Detectar en qué página estás
+
+                    let horariosSeleccionados;
+                    if (urlActual.includes("volkswagen")) {
+                        horariosSeleccionados = data.horarios.volkswagen;
+                    } else if (urlActual.includes("suzuki")) {
+                        horariosSeleccionados = data.horarios.suzuki;
+                    } else if (urlActual.includes("harley")) {
+                        horariosSeleccionados = data.horarios.harley;
+                    } else if (urlActual.includes("seat")) {
+                        horariosSeleccionados = data.horarios.seat;
+                    } else if (urlActual.includes("omoda")) {
+                        horariosSeleccionados = data.horarios.omoda;
+                    } else if (urlActual.includes("sev")) {
+                        horariosSeleccionados = data.horarios.sev;
+                    } else if (urlActual.includes("zeekr")) {
+                        horariosSeleccionados = data.horarios.zeekr;
+                    } else if (urlActual.includes("chirey")) {
+                        horariosSeleccionados = data.horarios.chirey;
+                    } else if (urlActual.includes("motor")) {
+                        horariosSeleccionados = data.horarios.motor;
+                    }
+
+                    if (horariosSeleccionados) {
+                        horariosSeleccionados.forEach(horario => {
+                            const div = document.createElement('div');
+                            div.className = 'horarios-departamento';
+                            div.innerHTML = `
+                                <h3>${horario.departamento}</h3>
+                                <p>${horario.horarios}</p>
+                            `;
+                            container.appendChild(div);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error al cargar los datos:', error));
+        });
+    </script>
+
+
+
+
+
+
+    <hr>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div>
+            <h3>Mapa del Sitio</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="{% url 'marcas' %}">Marcas</a></li>
+                <li><a href="{% url 'localizador_agencias' %}">Localizador de Agencias</a></li>
+                <li><a href="{% url 'atencion_al_cliente' %}">Atención al Cliente</a></li>
+                <li><a href="{% url 'acerca_empresa' %}">Acerca de la Empresa</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <hr>
+    <div style="text-align: center;">
+        <p>&copy; 2024 Grupo Fersan México, S.A. de C.V.</p>
+        <p><a href="#">Aviso de Privacidad</a> | Desarrollo por los <a href="{% static 'images/troyano.png' %}">Becarios -</a></p>
+    </div>
+
+</footer>
+</body>
+</html>

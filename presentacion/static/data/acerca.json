@@ -1,0 +1,39 @@
+{
+    "logo": "images/logo_acerca.png",
+    "contenido": [
+        {
+            "subtitulo": "Sobre Nosotros",
+            "descripcion": "Somos una empresa mexicana dedicada a soluciones automotrices a través de la conceción de diversas marcas de renombre internacional. Entregamos resultados que superan las expectativas de nuestros clientes y estamos comprometidos a brindar el más alto nivel de servicio al cliente."
+        },
+        {
+            "subtitulo": "Misión",
+            "descripcion": "Garantizar la satisfacción de nuestros clientes, ofreciendo calidad de servicios, mejora continua y los mejores vehículos para cada una de sus necesidades. Buscamos cada día superar las expectativas de clientes y accionistas para liderar el mercado automotriz, y así asegurar nuestra permanencia en el mercado."
+        },
+        {
+            "subtitulo": "Visión",
+            "descripcion": "Somos un grupo rentable y sustentable, buscando ser líderes en Venta, Post Venta y Vehículos Seminuevos. Nuestros procesos garantizan la satisfacción de nuestros clientes y equipo y nos colocan como referente nacional en el sector Automotriz."
+        },
+        {
+            "subtitulo": "Antecedentes",
+            "descripcion": "Nuestra historia inicio hace 48 años cuando el Lic. Gerardo Fernández Sanchez el 27 de Agosto de 1971, inicia Refrescos Naturales de Puebla S.A. de C.V. como distribuidor de los productos Mundet, se comenzaron operaciones teniendo la cobertura de Puebla y Tlaxcala. En 1973 es otorgada la franquicia de los productos Mundet por parte de la Dirección de Jugos de Frutas Mundet. En 1982, después de años de constante desarrollo y crecimiento, nace Embotelladora FERSAN S.A. de C.V., ya con una marca y prestigio propio. Actualmente contamos con una cartera de productos que van desde agua purificada, hasta bebidas isotónicas, teniendo presencia al interior de la república mexicana."
+        }
+    ],
+    "servicios": [
+        {
+            "nombre": "Venta de Unidades Nuevas",
+            "descripcion": "Ofrecemos una amplia gama de unidades nuevas de las mejores marcas, garantizando calidad y confiabilidad en cada vehículo."
+        },
+        {
+            "nombre": "Venta de Unidades Usadas",
+            "descripcion": "Contamos con unidades usadas certificadas, en excelente estado, para ofrecer opciones económicas a nuestros clientes."
+        },
+        {
+            "nombre": "Servicio de Hojalatería y Pintura",
+            "descripcion": "Brindamos servicios de hojalatería y pintura de alta calidad, restaurando vehículos a su mejor estado."
+        },
+        {
+            "nombre": "Refaccioness",
+            "descripcion": "Disponemos de una amplia variedad de refacciones originales y de calidad para mantener tu vehículo en óptimas condiciones."
+        }
+    ]
+}

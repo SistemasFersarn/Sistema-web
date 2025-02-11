@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="db.sqlite3" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3468"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="auth_group" custom_title="0" dock_id="2" table="4,10:mainauth_group"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011e00ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">-- Crear la base de datos no es necesario en SQLite
+-- Solo usamos la base de datos directamente
+
+-- Tabla Marca
+CREATE TABLE Marca (
+    id_marca INTEGER PRIMARY KEY,
+    nombre_marca TEXT NOT NULL
+);
+
+-- Tabla Departamento
+CREATE TABLE Departamento (
+    id_departamento INTEGER PRIMARY KEY,
+    nombre_departamento TEXT NOT NULL
+);
+
+-- Tabla Agencia
+CREATE TABLE Agencia (
+    id_agencia INTEGER PRIMARY KEY,
+    nombre_agencia TEXT NOT NULL,
+    id_marca INTEGER,
+    FOREIGN KEY (id_marca) REFERENCES Marca(id_marca) ON DELETE SET NULL
+);
+
+-- Tabla Sucursal
+CREATE TABLE Sucursal (
+    id_sucursal INTEGER PRIMARY KEY,
+    nombre_sucursal TEXT NOT NULL,
+    ubicacion TEXT,
+    id_agencia INTEGER,
+    FOREIGN KEY (id_agencia) REFERENCES Agencia(id_agencia) ON DELETE SET NULL
+);
+
+-- Tabla Directorio
+CREATE TABLE Directorio (
+    id_directorio INTEGER PRIMARY KEY,
+    id_sucursal INTEGER,
+    nombre TEXT NOT NULL,
+    ap_pa TEXT NOT NULL,
+    ap_ma TEXT NOT NULL,
+    contraseña TEXT NOT NULL,
+    telefono TEXT,
+    id_departamento INTEGER,
+    puesto TEXT,
+    correo TEXT,
+    token TEXT, -- Campo para el token de seguridad
+    FOREIGN KEY (id_departamento) REFERENCES Departamento(id_departamento) ON DELETE SET NULL,
+    FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal) ON DELETE SET NULL
+);
+
+-- Tabla Autos Nuevos
+CREATE TABLE Autos_nuevos (
+    id_autonuevo INTEGER PRIMARY KEY,
+    id_marca INTEGER,
+    modelo TEXT,
+    color TEXT,
+    num_puertas INTEGER,
+    año INTEGER,
+    transmision TEXT CHECK (transmision IN ('manual', 'automatico', 'semiautomatico')),
+    tipo_auto TEXT CHECK (tipo_auto IN ('Sedán', 'Coupé', 'Convertible', 'Hatchback', 'SUV', 'Pick-up', 'Híbrido')),
+    id_sucursal INTEGER,
+    precio_auto_MX REAL,
+    FOREIGN KEY (id_marca) REFERENCES Marca(id_marca) ON DELETE SET NULL,
+    FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal) ON DELETE SET NULL
+);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

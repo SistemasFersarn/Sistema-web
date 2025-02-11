@@ -1,0 +1,13 @@
+{
+    "motor_info": [
+        {
+            "lugar": "Ixtapaluca",
+            "logo": "images/LOGO_SUCURSAL/logo_motor_1.png",
+            "imagen": "images/motor_1.png",
+            "concecionario": "Concesionario autorizado Motornation",
+            "direccion": "Carr Federal México-Cuautla 301, predio 5, Santa Barbara, 56538 Ixtapaluca, Méx.",
+            "enlace": "https://www.motornation.com.mx/",
+            "telefono": "55-40-37-65-10"
+        }
+    ]
+}

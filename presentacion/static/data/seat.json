@@ -1,0 +1,22 @@
+{
+    "seat_info": [
+        {
+            "lugar": "Ixtapaluca",
+            "logo": "images/LOGO_SUCURSAL/logo_seat_1.png",
+            "imagen": "images/seat_1.png",
+            "concecionario": "Concesionario autorizado SEAT",
+            "direccion": "Av. Cuauhtémoc 708-Local B, Santa Barbara, 56538 Ixtapaluca, Méx.",
+            "enlace": "https://seat-navarramotors.com.mx/#",
+            "telefono": "55-27-34-23-86"
+        },
+        {
+            "lugar": "Chalco",
+            "logo": "images/LOGO_SUCURSAL/logo_seat_2.png",
+            "imagen": "images/seat_2.png",
+            "concecionario": "Concesionario autorizado SEAT",
+            "direccion": "19, 254270,-98.884876, 56600 Mexico, Méx.",
+            "enlace": "https://seat-navarramotors.com.mx/#",
+            "telefono": "55-63-50-35-11"
+        }
+    ]
+}

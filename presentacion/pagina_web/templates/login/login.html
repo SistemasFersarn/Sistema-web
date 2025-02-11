@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Grupo Fersan</title>
+  {% load static %}  
+  <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/HOLA.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body id="login-page"> 
+
+  <!-- Encabezado -->
+<header>
+  <div class="logo-container">
+    <!-- Imagen fuera del enlace -->
+    <img src="{% static 'images/fersan_blanco.png' %}" alt="Logo">
+    
+    <!-- Solo el texto estará dentro del enlace -->
+    <a href="{% url 'home' %}">
+      <h1>Grupo Fersan</h1>
+    </a>
+  </div>
+
+</header>
+
+  <div id="login-container">
+    <h2>Iniciar Sesión</h2>
+    <p>Inicio de Sesión Requerido</p>
+    <form method="post">
+      {% csrf_token %}
+      <label for="usuario">
+        Usuario
+        <input type="text" name="username" id="username" required>
+      </label>
+
+      <label for="pass">
+        Contraseña
+        <input type="password" name="password" id="password" required>
+      </label>
+
+      <button type="submit" id="login-button">Iniciar Sesión</button>
+      <button type="button" id="back-button" onclick="window.history.back()">Regresar</button>
+    </form>
+
+    <!-- <p>
+      <a href="{% url 'password_reset' %}" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+    </p> -->
+    
+    <!-- Sección para recuperación de cuenta -->
+    <div id="password-recovery">
+      <p>¿Olvidaste tu contraseña o necesitas recuperar tu cuenta?</p>
+      <a href="{% url 'password_reset' %}" id="recovery-link">Recuperar Contraseña</a>
+    </div>
+  </div> 
+
+</body>
+
+</html>

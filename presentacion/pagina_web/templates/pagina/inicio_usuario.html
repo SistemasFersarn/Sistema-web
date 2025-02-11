@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'images/LOGOS_CARGA_PAGINA/HOLA.png' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Bienvenida</title>
+
+    <!-- Importamos la fuente 'Poppins' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Enlace a tu archivo CSS general -->
+    <link rel="stylesheet" href="{% static 'css/styles_editar.css' %}">
+</head>
+<body id="inicio_usuario-page">
+    {% include 'components/encabezado_editar.html' %}
+
+    <!-- Contenedor principal -->
+    <main class="welcome-container">
+        <h1>Bienvenido, ¿Qué deseas editar?</h1>
+
+        <!-- Sección de edición de pie de página -->
+        <section id="editar-home">
+            <h2>Editar Pie de Pagina</h2>
+            <div class="home-edit-options">
+                <a href="{% url 'editar_horarios' %}" class="edit-item">Horarios</a>
+                <!--  <a href="{% url 'editar_ubicacion' %}" class="edit-item">Ubicación</a>-->
+            </div>
+        </section>
+
+        <!-- Sección de edición de marcas -->
+        <section id="editar-home">
+            <h2>Editar Marcas</h2>
+            <div class="home-edit-options">
+                <a href="{% url 'editar_vw' %}" class="edit-item">Volkswagen</a>
+                <a href="{% url 'editar_suzuki' %}" class="edit-item">Suzuki</a>
+                <a href="{% url 'editar_harley' %}" class="edit-item">Harley-Davidson</a>
+                <a href="{% url 'editar_seat' %}" class="edit-item">SEAT</a>
+                <a href="{% url 'editar_omoda' %}" class="edit-item">Omoda</a>
+                <a href="{% url 'editar_sev' %}" class="edit-item">SEV</a>
+                <a href="{% url 'editar_zeekr' %}" class="edit-item">Zeekr</a>
+                <a href="{% url 'editar_chirey' %}" class="edit-item">Chirey</a>
+                <a href="{% url 'editar_motor' %}" class="edit-item">Motornation</a>
+            </div>
+        </section>
+
+        <!-- Sección de edición del Home -->
+        <section id="editar-home">
+            <h2>Editar Home</h2>
+            <div class="home-edit-options">
+                <a href="{% url 'editar_contenido' %}" class="edit-item">Tarjetas de Información</a>
+                <a href="{% url 'editar_notas' %}" class="edit-item">Notas de Interés</a>
+                <a href="{% url 'editar_carrusel' %}" class="edit-item">Carrusel de Marcas</a>
+            </div>
+        </section>
+
+        <!-- Sección de edición de las herramientas -->
+        <section id="editar-home">
+            <h2>Editar Herramientas</h2>
+            <div class="home-edit-options">
+                <a href="{% url 'editar_loc_ag' %}" class="edit-item">Localizador de Agencias</a>
+                <a href="{% url 'editar_atencion' %}" class="edit-item">Atención al Cliente</a>
+                <a href="{% url 'editar_acerca' %}" class="edit-item">Acerca de la Empresa</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
